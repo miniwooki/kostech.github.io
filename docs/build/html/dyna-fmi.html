@@ -47,14 +47,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Docker와 FMI를 이용한 LS-Dyna Cosimulation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#introduction">1. Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#xming">2. Xming 설치하기</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#docker">3. docker 설치 및 예제 실행</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">설치하기</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">docker 이미지 다운로드</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#fmi">FMI 예제 파일 다운로드</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">docker 컨테이너 생성 및 실행</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#case8-airbag">예제 (case8_airbag) 실행</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#docker">3. docker 설치 및 예제 실행</a></li>
 </ul>
 </li>
 </ul>
@@ -106,44 +99,33 @@ docker의 실행은 Windows 운영체제에서 테스트 되었으며, linux 및
 </section>
 <section id="docker">
 <h2>3. docker 설치 및 예제 실행<a class="headerlink" href="#docker" title="Permalink to this heading"></a></h2>
-<ul class="simple">
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-</ul>
-<section id="id1">
-<h3>설치하기<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
-<p>docker는 아래 링크에서 플랫폼별 docker를 다운로드 받을 수 있습니다. 이 후 docker의 설치과정에 대한 설명은 생략합니다.</p>
+<ul>
+<li><p>설치하기<br />
+docker는 아래 링크에서 플랫폼별 docker를 다운로드 받을 수 있습니다. 이 후 docker의 설치과정에 대한 설명은 생략합니다.</p>
 <p>https://www.docker.com/</p>
 <p>설치가 완료되면 아래 사진과 같은 실행화면을 확인할 수 있습니다.</p>
 <p><img alt="docker 실행 화면" src="_images/docker1.png" /></p>
-</section>
-<section id="id2">
-<h3>docker 이미지 다운로드<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
-<p>docker 실행 화면에서 아래 사진과 같이 상단 Search에 kostech/ubuntu-fmi를 입력 후 검색되는 항목에서 Pull을 클릭하여  이미지를 다운로드 받습니다. 해당 이미지는 ubuntu 환경에서 LS-Dyna를 이용한 FMI Cosimulation을 테스트 하기 위한
+</li>
+<li><p>docker 이미지 다운로드<br />
+docker 실행 화면에서 아래 사진과 같이 상단 Search에 kostech/ubuntu-fmi를 입력 후 검색되는 항목에서 Pull을 클릭하여  이미지를 다운로드 받습니다. 해당 이미지는 ubuntu 환경에서 LS-Dyna를 이용한 FMI Cosimulation을 테스트 하기 위한
 Python 및 필요한 설정들이 되어 있습니다.</p>
 <p><img alt="kostech/ubuntu-fmi 이미지 검색 및 Pull" src="_images/docker2.png" /></p>
-</section>
-<section id="fmi">
-<h3>FMI 예제 파일 다운로드<a class="headerlink" href="#fmi" title="Permalink to this heading"></a></h3>
-<p>아래 링크에서 FMI 예제 파일을 다운로드 받습니다.</p>
+</li>
+<li><p>FMI 예제 파일 다운로드<br />
+아래 링크에서 FMI 예제 파일을 다운로드 받습니다.</p>
 <p>https://drive.google.com/file/d/1Z_kcDda29U1VxK_le0MivgaSCJPDzhJK/view?usp=share_link</p>
 <p>다운로드 받은 후 압축을 해제합니다. 설명을 위해 여기서는 압축을 해제한 폴더를 D:\dyna-fmi로 가정하겠습니다.</p>
-</section>
-<section id="id3">
-<h3>docker 컨테이너 생성 및 실행<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
-<p>Windows에서 Command Window 창을 실행하고 다음 명령어를 입력합니다.</p>
+</li>
+<li><p>docker 컨테이너 생성 및 실행<br />
+Windows에서 Command Window 창을 실행하고 다음 명령어를 입력합니다.</p>
 <p>docker run –cap-add=NET_ADMIN -e DISPLAY=host.docker.internal:0.0 -p 39400:39400 –volume D:\dyna-fmi:/home/workspace –name=fmi -it kostech/ubuntu-fmi:1.0</p>
 <p>위 명렁어를 입력하게 되면 아래 사진과 같이 linux 환경으로 접속됩니다. 아래 사진에서 –volume=E:\CWJUN\docker\dyna-fmi는 위에서 가정한 D:\dyna-fmi 경로에 대한 작성자 본인의 디렉토리이므로
 각자 FMI 예제 파일을 압축 해제한 경로로 입력하시면 됩니다. 여기서 cd /home/workspace를 입력한 후 ll 명령어로 디렉토리를 확인하면 D:\dyna-fmi 경로가 mapping되어 있는 것을 확인 할 수 있으며
 상호 동기화 되기 때문에 –volume으로 공유한 경로에 대해서는 파일 추가/삭제/수정 등의 작업등을 Windows 환경에서 하실 수 있습니다.</p>
 <p><img alt="Command 창에서 docker 컨테이너 실행" src="_images/docker4.png" /></p>
-</section>
-<section id="case8-airbag">
-<h3>예제 (case8_airbag) 실행<a class="headerlink" href="#case8-airbag" title="Permalink to this heading"></a></h3>
-<p>“cd /home/workspace/fmu/dyna_key/case8_airbag” 을 입력하여 예제가 있는 경로로 이동합니다.</p>
+</li>
+<li><p>예제 (case8_airbag) 실행<br />
+“cd /home/workspace/fmu/dyna_key/case8_airbag” 을 입력하여 예제가 있는 경로로 이동합니다.</p>
 <p><img alt="" src="_images/docker5.png" /></p>
 <p>run_case1.sh 파일과 run_case2.sh 파일에서 LSTC_LICENSE_SERVER 값을 본인 LS-Dyna 라이선스 서버 호스트로 변경합니다.</p>
 <p><img alt="" src="_images/docker6.png" /></p>
@@ -155,7 +137,8 @@ Python 및 필요한 설정들이 되어 있습니다.</p>
 <p><img alt="python 코드 실행" src="_images/docker9.png" /></p>
 <p>python 코드를 실행하게 되면 대기 중이던 case2 해석이 진행되며 해석이 종료 된 후에서 python 코드에서 계산된 결과들에 대한 그래프가 나타납니다.</p>
 <p><img alt="계산 결과" src="_images/docker10.png" /></p>
-</section>
+</li>
+</ul>
 </section>
 </section>
 

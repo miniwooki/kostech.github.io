@@ -13,7 +13,7 @@ Xming은 이후에 진행되는 LS-Dyan와 FMI의 Cosimulation에서 python을 �
 https://sourceforge.net/projects/xming/  
 
 ## 3. docker 설치 및 예제 실행
-- ###  설치하기
+- 설치하기  
     docker는 아래 링크에서 플랫폼별 docker를 다운로드 받을 수 있습니다. 이 후 docker의 설치과정에 대한 설명은 생략합니다.  
 
     https://www.docker.com/  
@@ -22,20 +22,20 @@ https://sourceforge.net/projects/xming/
 
     ![docker 실행 화면](images/docker1.png "docker 실행화면")
 
-- ### docker 이미지 다운로드
+- docker 이미지 다운로드  
     docker 실행 화면에서 아래 사진과 같이 상단 Search에 kostech/ubuntu-fmi를 입력 후 검색되는 항목에서 Pull을 클릭하여  이미지를 다운로드 받습니다. 해당 이미지는 ubuntu 환경에서 LS-Dyna를 이용한 FMI Cosimulation을 테스트 하기 위한 
     Python 및 필요한 설정들이 되어 있습니다. 
 
     ![kostech/ubuntu-fmi 이미지 검색 및 Pull](images/docker2.png "kostech/ubuntu-fmi 이미지 검색 및 Pull")
 
-- ### FMI 예제 파일 다운로드
+- FMI 예제 파일 다운로드  
   아래 링크에서 FMI 예제 파일을 다운로드 받습니다.  
 
   https://drive.google.com/file/d/1Z_kcDda29U1VxK_le0MivgaSCJPDzhJK/view?usp=share_link
 
   다운로드 받은 후 압축을 해제합니다. 설명을 위해 여기서는 압축을 해제한 폴더를 D:\dyna-fmi로 가정하겠습니다.
 
-- ### docker 컨테이너 생성 및 실행
+- docker 컨테이너 생성 및 실행  
   Windows에서 Command Window 창을 실행하고 다음 명령어를 입력합니다.  
 
   docker run --cap-add=NET_ADMIN -e DISPLAY=host.docker.internal:0.0 -p 39400:39400 --volume D:\dyna-fmi:/home/workspace --name=fmi -it kostech/ubuntu-fmi:1.0  
@@ -46,7 +46,7 @@ https://sourceforge.net/projects/xming/
 
   ![Command 창에서 docker 컨테이너 실행](images/docker4.png "Command 창에서 docker 컨테이너 실행")
 
-- ### 예제 (case8_airbag) 실행
+- 예제 (case8_airbag) 실행  
   "cd /home/workspace/fmu/dyna_key/case8_airbag" 을 입력하여 예제가 있는 경로로 이동합니다.
 
   ![](images/docker5.png)
