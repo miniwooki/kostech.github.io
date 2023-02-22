@@ -10,7 +10,6 @@ Welcome to kostech_docs's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   modules
    dyna-fmi
 
 Indices and tables
