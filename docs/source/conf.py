@@ -13,7 +13,7 @@ author = 'cwjun'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.autodoc']
+extensions = ['myst_parser']
 
 templates_path = ['_templates']
 exclude_patterns = []
@@ -29,4 +29,12 @@ html_static_path = ['_static']
 ## 추가
 import os
 import sys
+# from recommonmark.parser import CommonMarkParser
+
+# source_parsers = {
+#     '.md': CommonMarkParser,
+# }
+
+# source_suffix = ['.rst','.md']
+
 sys.path.insert(0, os.path.abspath('../../src/my_package'))
