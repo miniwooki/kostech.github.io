@@ -10,13 +10,13 @@ docker의 실행은 Windows 운영체제에서 테스트 되었으며, linux 및
 ## 2. Xming 설치하기
 Xming은 이후에 진행되는 LS-Dyan와 FMI의 Cosimulation에서 python을 이용하여 LS-Dyna 시뮬레이션이 진행되면서 각 time-step의 결과들을 얻고 얻은 결과을 이용하여 계산된 결과들을 plot 할 때 생성되는 gui를 표시할 서버를 연결시키기 위한 도구로 사용됩니다. Xming은 아래 링크에서 다운로드 받을 수 있습니다.   
 
-https://sourceforge.net/projects/xming/  
+<https://sourceforge.net/projects/xming/>  
 
 ## 3. docker 설치 및 예제 실행
 - 설치하기  
     docker는 아래 링크에서 플랫폼별 docker를 다운로드 받을 수 있습니다. 이 후 docker의 설치과정에 대한 설명은 생략합니다.  
 
-    https://www.docker.com/  
+    <https://www.docker.com/>  
 
     설치가 완료되면 아래 사진과 같은 실행화면을 확인할 수 있습니다.
 
@@ -31,7 +31,7 @@ https://sourceforge.net/projects/xming/
 - FMI 예제 파일 다운로드  
   아래 링크에서 FMI 예제 파일을 다운로드 받습니다.  
 
-  https://drive.google.com/file/d/1Z_kcDda29U1VxK_le0MivgaSCJPDzhJK/view?usp=share_link
+  <https://drive.google.com/file/d/1Z_kcDda29U1VxK_le0MivgaSCJPDzhJK/view?usp=share_link>
 
   다운로드 받은 후 압축을 해제합니다. 설명을 위해 여기서는 압축을 해제한 폴더를 D:\dyna-fmi로 가정하겠습니다.
 
