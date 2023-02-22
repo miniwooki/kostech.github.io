@@ -11,7 +11,7 @@ Welcome to kostech_docs's documentation!
    :caption: Contents:
 
    modules
-   mymarkdown
+   dyna-fmi
 
 Indices and tables
 ==================
