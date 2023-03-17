@@ -8,10 +8,15 @@ Welcome to kostech_docs's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: COSIMULATION
 
    dyna-fmi
-   lamp
+
+.. toctree::
+   :maxdepth: 2
+   :caption: LAMP
+
+   start_lamp
 
 Indices and tables
 ==================
