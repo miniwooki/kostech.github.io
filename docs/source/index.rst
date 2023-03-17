@@ -11,6 +11,7 @@ Welcome to kostech_docs's documentation!
    :caption: Contents:
 
    dyna-fmi
+   lamp
 
 Indices and tables
 ==================
