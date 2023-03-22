@@ -18,10 +18,3 @@ Welcome to kostech_docs's documentation!
 
    start_lamp
    gen_strain_rate_curve
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
