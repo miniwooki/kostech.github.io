@@ -17,6 +17,7 @@ Welcome to kostech_docs's documentation!
    :caption: LAMP
 
    start_lamp
+   gen_strain_rate_curve
 
 Indices and tables
 ==================

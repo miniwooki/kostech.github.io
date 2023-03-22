@@ -1,7 +1,4 @@
 # 시작하기
-- [목록]()
-  - [1. Introduction](#1-Introduction)
-  - [2. Installation](#2-Installation)
 
 ## 1. Introduction
 LAMP(LS-Dyna Advanced Material Platform)는 한국시뮬레이션기술에서 개발하고 있는 프로그램으로 LS-Dyna 사용자들이 재료 물성 카드를 생성 및 관리할 수 있도록 다양한 기능들을 제공하여 LS-Dyna 해석 소프트웨어 활용에 편의성을 제공합니다. LAMP는 현재 한국시뮬레이션기술에서 LS-Dyna를 구매하고 유지보수를 유지하고 계시는 고객들에게 제공되고 있습니다.
@@ -10,11 +7,11 @@ LAMP 설치를 위해 압축파일이 제공되며, 압축 해제 후 LAMP Insta
 
 ![LAMP 설치 화면](images/LAMP0.png "LAMP 설치 화면")
 
-### 경로 변경 
+### 2.1 경로 변경 
 설치 경로는 Install directory 우측 아이콘을 ![](images/LAMP1.png) 클릭 하여 변경 할 수 있습니다.
-### LAMP Server 설치 
+### 2.2 LAMP Server 설치 
 LAMP에서 제공하고 데이터베이스 및 네트워크 라이선스를 관리 할 수 있는 프로그램으로 데이터베이스 및 네트워크 라이선스를 관리 할 장비에 설치합니다. 
-### LAMP 설치 
+### 2.3 LAMP 설치 
 사용자 PC에 LAMP를 설치합니다.
 
 ## 3. License 발급
