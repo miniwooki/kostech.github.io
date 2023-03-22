@@ -6,7 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'kostech_docs'
+project = 'KOSTECH Documentation'
 copyright = '2023, cwjun'
 author = 'cwjun'
 

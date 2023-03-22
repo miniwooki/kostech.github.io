@@ -27,7 +27,7 @@ LicenseManager를 실행하고 상단 Export 메뉴에서 Log file 메뉴를 클
 #### 라이선스 파일 등록
 제공되는 라이선스 파일은 LicenseManager에서 등록을 해야 합니다. LicenseManager를 실행 하시고 License Type을 Stand-alone으로 선택합니다. License Path의 Browse를 클릭한 후 제공된 라이선스 파일을 선택하고 Apply를 눌러 라이선스를 등록합니다.
 
-![](images/LAMP3.png)
+![License Manager](images/LAMP3.png)
 
 ### 3.2 Network license
 #### 로그 파일 생성 (서버 PC)
@@ -42,7 +42,7 @@ LicenseManager를 실행하고 상단 Export 메뉴에서 Log file 메뉴를 클
 #### 라이선스 파일 등록 (서버 PC)
 제공되는 라이선스는 서버 PC에서 LAMP Server를 통해 등록합니다.
 
-- LAMP Server를 실행하고 ![](images/LAMP4.png) 아이콘을 클릭
+- LAMP Server를 실행하고 ![License icon](images/LAMP4.png) 아이콘을 클릭
 - Registration 버튼 클릭 후 제공된 라이선스 파일 선택
 
 #### 라이선스 등록 (클라이언트 PC)

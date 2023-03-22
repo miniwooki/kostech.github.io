@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to kostech_docs's documentation!
+Welcome to KOSTECH documentation!
 ========================================
 
 .. toctree::
