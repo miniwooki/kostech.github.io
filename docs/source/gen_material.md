@@ -8,7 +8,7 @@ LAMP의 상단 아이콘 메뉴에서 ![]() 아이콘을 클릭하면 입력 패
 
 ![](images/MAT0.png){align=center}
 
-{.bg-warning}
+{.bg-gray}
 Working directory(**빨간 테두리**)
 : 생성된 파일이 저장되는 경로를 지정합니다.
   입력란을 더블클릭 하여 경로를 선택할 수 있습니다.    
