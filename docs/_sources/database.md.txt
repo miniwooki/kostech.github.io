@@ -38,7 +38,7 @@ LS-Dyna 키워드 파일에 정의되어 있는 Material 카드 정보를 데이
 - *MAT_PIECEWISE_LINEAR_PLASTICITY
 
 ### 1.1 입력 패널 UI
-LAMP의 상단 아이콘 메뉴에서 ![](images/INSERTDB0.png) 아이콘을 클릭합니다.
+LAMP의 상단 아이콘 메뉴에서 ![](images/INSERTDB0.png){width=20px} 아이콘을 클릭합니다.
 
 ![](images/INSERTDB1.png)
 
