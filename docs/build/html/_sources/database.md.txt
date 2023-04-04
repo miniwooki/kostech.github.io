@@ -2,8 +2,8 @@
 
 LAMP에서는 LS-Dyna의 물성 데이터를 저장 및 공유하기 위한 데이터베이스 인터페이스를 제공합니다. 현재 LAMP에서는 MariaDB를 활용하여 개발하고 있기 때문에 데이터베이스 서버에 MariaDB 설치가 필요합니다. 제한된 환경에서 테스트 되고 있기에 다음 환경에서 MariaDB를 활용한 LAMP 사용이 가능합니다. 사용 가능한 환경에 대한 정보는 향후에 테스트 후 추가 될 예정입니다.
 
-* OS : Windows 10 or 11
-* MariaDB Version : 10.5.3
+> OS : Windows 10 or 11 \
+> MariaDB Version : 10.5.3
 
 ## 1. MariaDB 설치 및 현대제철 물성 추가
 LAMP에서는 Steel계열의 현대제철 물성 데이터를 제공하고 있습니다. 현대제철 물성을 사용하기 위해서는 LAMP Server, MariaDB를 설치 후 LAMP Server에서 제공되는 현대제철 물성 데이터 (hyundaisteel_db.sql)파일을 로드 하여야 합니다. 자세한 내용은 [LAMP Server 설치](./start_lamp.md#22-lamp-server-설치), [MariaDB 설치](./start_lamp.md#41-mariadb-설치) 그리고 [현대제철 물성 적용](./start_lamp.md#42-현대제철-물성-추가)에서 확인 할 수 있습니다. 
@@ -25,9 +25,9 @@ LAMP에서는 Steel계열의 현대제철 물성 데이터를 제공하고 있�
 **Double click to bring up the solver**에서 마우스 더블 클릭하고 LS-Dyna Solver가 있는 경로를 선택합니다. \
 선택된 경로에 있는 모든 ls-dyna solver가 나열되며 하나의 solver를 선택합니다.
 :::
->* Series List : 선택한 물성에 포함된 Strain rate에 따른 데이터를 표시
->* Include Material Card : 출력파일에 물성 카드를 포함 할 것인지를 선택
->* Encryption : 데이터를 암호화하여 출력할 것인지를 선택
+> Series List : 선택한 물성에 포함된 Strain rate에 따른 데이터를 표시 \
+> Include Material Card : 출력파일에 물성 카드를 포함 할 것인지를 선택 \
+> Encryption : 데이터를 암호화하여 출력할 것인지를 선택 
 
 ![](images/DB2.png){align=center}
 
@@ -38,9 +38,9 @@ LS-Dyna 키워드 파일에 정의되어 있는 Material 카드 정보를 데이
 - *MAT_PIECEWISE_LINEAR_PLASTICITY
 
 ### 1.1 입력 패널 UI
-LAMP의 상단 아이콘 메뉴에서 ![](images/INSERTDB0.png){width=20px} 아이콘을 클릭합니다.
+LAMP의 상단 아이콘 메뉴에서 ![](images/INSERTDB0.png){width=30px} 아이콘을 클릭합니다.
 
-![](images/INSERTDB1.png)
+![](images/INSERTDB1.png){align=center}
 
 ### 1.2 물성 추가하기
 
@@ -59,9 +59,9 @@ LAMP의 상단 아이콘 메뉴에서 ![](images/INSERTDB0.png){width=20px} 아�
     * 재료 데이터는 카테고리 항목 아래에 저장되기에 Category를 선택합니다. ![](images/INSERTDB3.png)로 추가 할 수 있습니다.
     * 물성 이름(Material Name)을 입력하고 Insert를 눌러 DB에 데이터를 저장합니다.
 
-![](images/INSERTDB2.png)
+![](images/INSERTDB2.png){align=center}
 
 ### 1.3 DB에서 저장된 데이터 확인
-데이터베이스에 저장된 데이터 확인 및 출력은 [데이터베이스](start_lamp.md) 항목에서 확인할 수 있습니다.
+사용자가 추가한 데이터는 트리 뷰의 database 탭에서 user_db 항목에 추가 됩니다. 
 
 
