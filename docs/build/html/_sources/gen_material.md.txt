@@ -8,15 +8,16 @@ LAMP의 상단 아이콘 메뉴에서 ![]() 아이콘을 클릭하면 입력 패
 
 ![](images/MAT0.png){align=center}
 
-{.border-red .bg-lightblue}
-Working directory
-: 생성된 파일이 저장되는 경로를 지정합니다. \
-  입력란을 더블클릭 하여 경로를 선택할 수 있습니다.    
-
-{.border-blue .bg-lightblue}
-Material property(**파랑 테두리**)
-: MAT_024 카드에 입력되는 재료 물성 데이터를 입력합니다.
-:::{tip}
-`Sync with gradient`를 체크하면 항복점 선택으로 정의되는 elastic line의 기울기 값으로 입력됩니다.
+### 1.2 Working directory
+Working directory는 Curve Fitting으로 생성되는 데이터가 저장되는 경로를 지정합니다.
+:::{admonition} Selection of working directory
+:class: tip
+Working directory 선택은 입력란을 더블 클릭 하여 선택할 수 있습니다.
 :::
-  
+
+### 1.3 Material property
+MAT_024 카드에 입력될 재료 물성 값을 입력합니다.
+:::{admonition} Sync with gradient
+:class: tip
+`Sync with gradient`를 체크하면 항복점 선택 시 정의되는 elastic line의 기울기 값으로 입력됩니다.
+:::
