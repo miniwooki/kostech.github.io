@@ -14,7 +14,7 @@ author = 'cwjun'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ['myst_parser']
-myst_heading_anchors = 2
+myst_heading_anchors = 1
 
 templates_path = ['_templates']
 exclude_patterns = []
