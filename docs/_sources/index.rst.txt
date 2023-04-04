@@ -17,5 +17,6 @@ Welcome to KOSTECH documentation!
    :caption: LAMP
 
    start_lamp
+   gen_material
    database
    gen_strain_rate_curve
