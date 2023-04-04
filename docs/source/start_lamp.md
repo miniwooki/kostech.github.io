@@ -9,7 +9,6 @@ LAMP 설치를 위해 압축파일이 제공되며, 압축 해제 후 LAMP Insta
 
 ### 2.1 경로 변경 
 설치 경로는 Install directory 우측 아이콘을 ![](images/LAMP1.png) 클릭 하여 변경 할 수 있습니다.
-(install_lamp)=
 ### 2.2 LAMP Server 설치 
 LAMP에서 제공하고 데이터베이스 및 네트워크 라이선스를 관리 할 수 있는 프로그램으로 데이터베이스 및 네트워크 라이선스를 관리 할 장비에 설치합니다. 
 ### 2.3 LAMP 설치 
