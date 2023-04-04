@@ -18,7 +18,7 @@ myst_heading_anchors = 3
 # myst_all_links_external = True
 templates_path = ['_templates']
 exclude_patterns = []
-myst_enable_extensions = ["colon_fence"]
+myst_enable_extensions = ["colon_fence", "attrs_inline"]
 
 
 # -- Options for HTML output -------------------------------------------------
