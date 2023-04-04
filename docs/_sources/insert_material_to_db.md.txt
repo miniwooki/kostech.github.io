@@ -1,16 +1,15 @@
 # 데이터베이스 물성 추가
 
-## 1. 기능 소개
 LS-Dyna 키워드 파일에 정의되어 있는 Material 카드 정보를 데이터베이스에 저장할 수 있는 기능으로 현재 추가할 수 있는 물성 카드는 다음과 같습니다. 
 
 - *MAT_PIECEWISE_LINEAR_PLASTICITY
 
-### 1.1 입력 패널 UI
+## 1. 입력 패널 UI
 LAMP의 상단 아이콘 메뉴에서 ![](images/INSERTDB0.png) 아이콘을 클릭합니다.
 
 ![](images/INSERTDB1.png)
 
-### 1.2 물성 추가하기
+## 2. 물성 추가하기
 
 * 키워드 파일 불러오기
     * Keyword file(Double click to open file) 입력란에서 마우스로 더블 클릭합니다.
@@ -29,7 +28,7 @@ LAMP의 상단 아이콘 메뉴에서 ![](images/INSERTDB0.png) 아이콘을 클
 
 ![](images/INSERTDB2.png)
 
-### 1.3 DB에서 저장된 데이터 확인
+## 3. DB에서 저장된 데이터 확인
 데이터베이스에 저장된 데이터 확인 및 출력은 [데이터베이스](start_lamp.md) 항목에서 확인할 수 있습니다.
 
 
