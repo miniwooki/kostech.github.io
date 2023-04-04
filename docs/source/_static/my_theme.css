@@ -5,5 +5,18 @@
     background-color: lightblue;
 }
 .border-red {
+    border-width: 1px;
     border-color: red;
+}
+.border-blue {
+    border-color: blue;
+}
+.border-green {
+    border-color: green;
+}
+.border-orange {
+    border-color: orange;
+}
+.border-purple {
+    border-color: purple;
 }
