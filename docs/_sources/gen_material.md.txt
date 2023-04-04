@@ -37,6 +37,11 @@ Load raw data
 
  Selection of data
  : 가져올 strain-stress 데이터를 블록 선택하고 Data Type을 선택합니다.
+
+ :::{caution}
+ 가져오는 strain-stress 데이터의 각 열은 반드시 서로 인접해야 합니다.
+ :::
+
  :::{admonition} Selection of Data Type
  Curve fitting은 Engineering strain-stress를 사용하여 수행되기 때문에 선택한 데이터는 Engineering strain-stress로 변환됩니다. 변환을 위해서 선택한 데이터가 어떤 형태의 데이터인지를 알아야 하기에 Data Type을 선택합니다.
 
@@ -44,10 +49,8 @@ Load raw data
  - Engineering Strain Stress : 선택한 데이터가 Engineering Strain Stress(공칭응력)일 경우 선택합니다.
  - Engineering Strain[%] Stress : 선택한 데이터가 Engineering Strain Stress이면서 Strain이 %단위일 경우 선택합니다.
  - Displacement vs. Force : 선택한 데이터가 Displacement-Force일 경우 선택합니다.
- 
+
  :::{attention}
  Displacement vs. Force일 경우 Engineering Strain Stress로 변환하기 위해 시편의 Guage Length, Specimen Width, Specimen thickness가 필요합니다. 활성화 되는 아래 입력란에 입력할 수 있습니다.
  :::
- :::{caution}
- 가져오는 strain-stress 데이터의 각 열은 반드시 서로 인접해야 합니다.
  :::
