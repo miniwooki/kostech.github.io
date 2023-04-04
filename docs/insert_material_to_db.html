@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; KOSTECH Documentation  documentation</title>
+  <title>데이터베이스 물성 추가 &mdash; KOSTECH Documentation  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -17,8 +18,10 @@
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="#" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Strain Rate 커브 생성" href="gen_strain_rate_curve.html" />
+    <link rel="prev" title="시작하기" href="start_lamp.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,9 +48,15 @@
 <li class="toctree-l1"><a class="reference internal" href="dyna-fmi.html">Docker와 FMI를 이용한 LS-Dyna Cosimulation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">LAMP</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="start_lamp.html">시작하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="insert_material_to_db.html">데이터베이스 물성 추가</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">데이터베이스 물성 추가</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">1. 기능 소개</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ui">1.1 입력 패널 UI</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="gen_strain_rate_curve.html">Strain Rate 커브 생성</a></li>
 </ul>
 
@@ -65,8 +74,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Index</li>
+      <li class="breadcrumb-item active">데이터베이스 물성 추가</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="_sources/insert_material_to_db.md.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -74,17 +84,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
-</div>
+  <section id="id1">
+<h1>데이터베이스 물성 추가<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h1>
+<section id="id2">
+<h2>1. 기능 소개<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<p>LS-Dyna 키워드 파일에 정의되어 있는 Material 카드 정보를 데이터베이스에 저장할 수 있는 기능으로 현재 추가할 수 있는 물성 카드는 다음과 같습니다.</p>
+<ul class="simple">
+<li><p>*MAT_PIECEWISE_LINEAR_PLASTICITY</p></li>
+</ul>
+<section id="ui">
+<h3>1.1 입력 패널 UI<a class="headerlink" href="#ui" title="Permalink to this heading"></a></h3>
+<p>LAMP의 상단 아이콘 메뉴에서 <img alt="" src="_images/INSERTDB0.png" /> 아이콘을 클릭하면 아래 그림곽 같은 창이 표시됩니다.</p>
+</section>
+</section>
+</section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="start_lamp.html" class="btn btn-neutral float-left" title="시작하기" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gen_strain_rate_curve.html" class="btn btn-neutral float-right" title="Strain Rate 커브 생성" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

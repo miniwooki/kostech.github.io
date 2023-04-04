@@ -4,9 +4,9 @@
 Strain rate 따른 시편 시험 데이터가 존재 않을 경우 static 시험 데이터 만으로 Johnson-Cook 모델을 이용하여 strain rate에 따른 plastic strain-stress 곡선을 생성해 볼 수 있는 기능입니다. 해당 기능으로 생성된 데이터는 실제 시험 데이트를 기반으로 생성된 데이터가 아니기 때문에 신뢰성을 보장하기 어렵다는 점을 고려하여야 합니다.
 
 ### 1.1 입력 패널 UI
-LAMP의 상단 아이콘 메뉴에서 <img src="images/GENSR0.png" width="15"> 클릭하면 입력 패널 UI가 우측에 표시됩니다. 
+LAMP의 상단 아이콘 메뉴에서 ![](images/GENSR0.jpg) 클릭하면 입력 패널 UI가 우측에 표시됩니다. 
 
-<img src="images/GENSR1.png" width="600">
+![](images/GENSR1.png)
 
 ### 1.2 곡선 생성하기
 

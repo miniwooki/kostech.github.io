@@ -63,7 +63,7 @@ LAMP에서 제공하는 데이터베이스는 MariaDB에서 테스트 되었으�
 ### 4.2 현대제철 물성 추가
 LAMP는 현대제철의 Steel 계열의 물성을 제공합니다. 현대제철 물성을 사용하기 위해서는 제공되는 현대제철 물성을 데이터베이스에 추가하여야 합니다.
 
-- LAMP Server 실행 후 <img src="images/LAMP8.png" width="15" Height="15"/> 아이콘 클릭
+- LAMP Server 실행 후 ![](images/LAMP8.jpg) 아이콘 클릭
 - DB Connect 클릭 후 사용자 계정(root)과 비밀번호를 입력 하고 Connect 클릭
 - 연결 성공 시 File Load 버튼 활성화 되며 File Load 버튼 클릭하고 hyundaisteel_db.sql 파일 선택 
 - hyundaisteel_db.sql 파일은 LAMP Server 설치 경로의 data 폴더에 있음
