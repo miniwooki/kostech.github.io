@@ -102,7 +102,7 @@
 </ul>
 <section id="mariadb">
 <h2>1. MariaDB 설치 및 현대제철 물성 추가<a class="headerlink" href="#mariadb" title="Permalink to this heading"></a></h2>
-<p>LAMP에서는 Steel계열의 현대제철 물성 데이터를 제공하고 있습니다. 현대제철 물성을 사용하기 위해서는 LAMP Server, MariaDB를 설치 후 LAMP Server에서 제공되는 현대제철 물성 데이터 (hyundaisteel_db.sql)파일을 로드 하여야 합니다. 자세한 내용은 <span class="xref myst">LAMP Server 설치</span>, <span class="xref myst">MariaDB 설치</span> 그리고 <span class="xref myst">현대제철 물성 적용</span>에서 확인 할 수 있습니다.</p>
+<p>LAMP에서는 Steel계열의 현대제철 물성 데이터를 제공하고 있습니다. 현대제철 물성을 사용하기 위해서는 LAMP Server, MariaDB를 설치 후 LAMP Server에서 제공되는 현대제철 물성 데이터 (hyundaisteel_db.sql)파일을 로드 하여야 합니다. 자세한 내용은 <a class="reference internal" href="start_lamp.html#lamp-server"><span class="std std-ref">LAMP Server 설치</span></a>, <a class="reference internal" href="start_lamp.html#mariadb"><span class="std std-ref">MariaDB 설치</span></a> 그리고 <a class="reference internal" href="start_lamp.html#id8"><span class="std std-ref">현대제철 물성 적용</span></a>에서 확인 할 수 있습니다.</p>
 </section>
 <section id="id2">
 <h2>2. 물성 확인 및 출력<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
@@ -113,16 +113,17 @@
 </section>
 <section id="id4">
 <h3>2.2 물성 출력<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
-<p>선택한 물성 데이터를 LS-Dyna 키워드 파일로 출력하기 위해서 트리 뷰 아래에 표시되는 속성에서 Export 항목의 <img alt="" src="_images/DB1.png" /> 아이콘을 클릭합니다. <code class="docutils literal notranslate"><span class="pre">Series</span> <span class="pre">List</span></code>에서 출력하고자 하는 커브 데이터를 선택하고 <code class="docutils literal notranslate"><span class="pre">Include</span> <span class="pre">Material</span> <span class="pre">Card</span></code>와 <code class="docutils literal notranslate"><span class="pre">Encryption</span></code> 항목을 필요에 따라 선택합니다. 암호화 유무에 따라 LS-Dyna solver를 선택하고 Export를 클릭하여 데이터를 LS-Dyna 키워드 파일로 출력합니다.  <br />
-:::{note}
-현대제철 물성은 암호화가 필수로 진행되며 Encryption 선택란이 비활성화 됩니다. <br />
-만약 <code class="docutils literal notranslate"><span class="pre">Encryption</span></code> 항목을 체크하였다면 암호화를 위해 LS-Dyna 솔버가 요구됩니다.
-:::
-:::{admonition} Selection of LS-Dyna solver
-:class: tip
-<strong>Double click to bring up the solver</strong>에서 마우스 더블 클릭하고 LS-Dyna Solver가 있는 경로를 선택합니다. <br />
-선택된 경로에 있는 모든 ls-dyna solver가 나열되며 하나의 solver를 선택합니다.
-:::</p>
+<p>선택한 물성 데이터를 LS-Dyna 키워드 파일로 출력하기 위해서 트리 뷰 아래에 표시되는 속성에서 Export 항목의 <img alt="" src="_images/DB1.png" /> 아이콘을 클릭합니다. <code class="docutils literal notranslate"><span class="pre">Series</span> <span class="pre">List</span></code>에서 출력하고자 하는 커브 데이터를 선택하고 <code class="docutils literal notranslate"><span class="pre">Include</span> <span class="pre">Material</span> <span class="pre">Card</span></code>와 <code class="docutils literal notranslate"><span class="pre">Encryption</span></code> 항목을 필요에 따라 선택합니다. 암호화 유무에 따라 LS-Dyna solver를 선택하고 Export를 클릭하여 데이터를 LS-Dyna 키워드 파일로 출력합니다.  \</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>현대제철 물성은 암호화가 필수로 진행되며 Encryption 선택란이 비활성화 됩니다. <br />
+만약 <code class="docutils literal notranslate"><span class="pre">Encryption</span></code> 항목을 체크하였다면 암호화를 위해 LS-Dyna 솔버가 요구됩니다.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Selection of LS-Dyna solver</p>
+<p><strong>Double click to bring up the solver</strong>에서 마우스 더블 클릭하고 LS-Dyna Solver가 있는 경로를 선택합니다. <br />
+선택된 경로에 있는 모든 ls-dyna solver가 나열되며 하나의 solver를 선택합니다.</p>
+</div>
 <blockquote>
 <div><ul class="simple">
 <li><p>Series List : 선택한 물성에 포함된 Strain rate에 따른 데이터를 표시</p></li>
@@ -130,7 +131,7 @@
 <li><p>Encryption : 데이터를 암호화하여 출력할 것인지를 선택</p></li>
 </ul>
 </div></blockquote>
-<p><img alt="" src="_images/DB2.png" />{align=center}</p>
+<p><img alt="" class="align-center" src="_images/DB2.png" /></p>
 </section>
 </section>
 <section id="id5">
@@ -175,7 +176,7 @@
 </section>
 <section id="db">
 <h3>1.3 DB에서 저장된 데이터 확인<a class="headerlink" href="#db" title="Permalink to this heading"></a></h3>
-<p>데이터베이스에 저장된 데이터 확인 및 출력은 <a class="reference internal" href="start_lamp.html"><span class="doc std std-doc">데이터베이스</span></a> 항목에서 확인할 수 있습니다.</p>
+<p>데이터베이스에 저장된 데이터 확인 및 출력은 <a class="reference internal" href="start_lamp.html"><span class="std std-doc">데이터베이스</span></a> 항목에서 확인할 수 있습니다.</p>
 </section>
 </section>
 </section>
