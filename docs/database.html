@@ -53,9 +53,14 @@
 <li class="toctree-l1"><a class="reference internal" href="start_lamp.html">시작하기</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">데이터베이스</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#mariadb">1. MariaDB 설치 및 현대제철 물성 추가</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">2. 데이터베이스에 물성 추가</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2. 물성 확인 및 출력</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">2.1 물성 확인</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">2.2 물성 출력</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">3. 데이터베이스에 물성 추가</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#ui">1.1 입력 패널 UI</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">1.2 물성 추가하기</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">1.2 물성 추가하기</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#db">1.3 DB에서 저장된 데이터 확인</a></li>
 </ul>
 </li>
@@ -100,7 +105,30 @@
 <p>LAMP에서는 Steel계열의 현대제철 물성 데이터를 제공하고 있습니다. 현대제철 물성을 사용하기 위해서는 LAMP Server, MariaDB를 설치 후 LAMP Server에서 제공되는 현대제철 물성 데이터 (hyundaisteel_db.sql)파일을 로드 하여야 합니다. 자세한 내용은 <a class="reference internal" href="start_lamp.html#lamp-server"><span class="std std-doc">LAMP Server 설치</span></a>, <a class="reference internal" href="start_lamp.html#mariadb"><span class="std std-doc">MariaDB 설치</span></a> 그리고 <a class="reference internal" href="start_lamp.html#id8"><span class="std std-doc">현대제철 물성 적용</span></a>에서 확인 할 수 있습니다.</p>
 </section>
 <section id="id2">
-<h2>2. 데이터베이스에 물성 추가<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<h2>2. 물성 확인 및 출력<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<section id="id3">
+<h3>2.1 물성 확인<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<p>데이터베이스의 데이터를 확인하기 위해 LAMP 좌측 트리 뷰에서 Database 탭을 선택하고, 확인하고자 하는 물성을 선택합니다. 선택하게 되면 트리뷰 하단에 물성의 속성이 출력되며, 물성에 포함된 커브 데이터가 그래프로 표시 됩니다.</p>
+<p><img alt="" src="_images/DB0.png" /></p>
+</section>
+<section id="id4">
+<h3>2.2 물성 출력<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<p>선택한 물성 데이터를 LS-Dyna 키워드 파일로 출력하기 위해서 트리 뷰 아래에 표시되는 속성에서 Export 항목의 <img alt="" src="_images/DB1.png" /> 아이콘을 클릭합니다. <code class="docutils literal notranslate"><span class="pre">Series</span> <span class="pre">List</span></code>에서 출력하고자 하는 커브 데이터를 선택하고 <code class="docutils literal notranslate"><span class="pre">Include</span> <span class="pre">Material</span> <span class="pre">Card</span></code>와 <code class="docutils literal notranslate"><span class="pre">Encryption</span></code> 항목을 필요에 따라 선택합니다.
+:::{note}
+(현대제철 물성은 암호화가 필수로 진행되므로 선택란이 비활성화 됨).
+:::</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Series List : 선택한 물성에 포함된 Strain rate에 따른 데이터를 표시</p></li>
+<li><p>Include Material Card : 출력파일에 물성 카드를 포함 할 것인지를 선택</p></li>
+<li><p>Encryption : 데이터를 암호화하여 출력할 것인지를 선택</p></li>
+</ul>
+</div></blockquote>
+<p><img alt="" src="_images/DB2.png" /></p>
+</section>
+</section>
+<section id="id5">
+<h2>3. 데이터베이스에 물성 추가<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
 <p>LS-Dyna 키워드 파일에 정의되어 있는 Material 카드 정보를 데이터베이스에 저장할 수 있는 기능으로 현재 추가할 수 있는 물성 카드는 다음과 같습니다.</p>
 <ul class="simple">
 <li><p>*MAT_PIECEWISE_LINEAR_PLASTICITY</p></li>
@@ -110,8 +138,8 @@
 <p>LAMP의 상단 아이콘 메뉴에서 <img alt="" src="_images/INSERTDB0.png" /> 아이콘을 클릭합니다.</p>
 <p><img alt="" src="_images/INSERTDB1.png" /></p>
 </section>
-<section id="id3">
-<h3>1.2 물성 추가하기<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<section id="id6">
+<h3>1.2 물성 추가하기<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>키워드 파일 불러오기</p>
 <ul>
