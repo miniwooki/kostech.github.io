@@ -8,16 +8,27 @@ LAMP의 상단 아이콘 메뉴에서 ![]() 아이콘을 클릭하면 입력 패
 
 ![](images/MAT0.png){align=center}
 
+{.border-red}
 ### 1.2 Working directory
 Working directory는 Curve Fitting으로 생성되는 데이터가 저장되는 경로를 지정합니다.
 :::{admonition} Selection of working directory
 :class: tip
-Working directory 선택은 입력란을 더블 클릭 하여 선택할 수 있습니다.
+`Working directory` 선택은 입력란을 더블 클릭 하여 선택할 수 있습니다.
 :::
 
+{.border-blue}
 ### 1.3 Material property
 MAT_024 카드에 입력될 재료 물성 값을 입력합니다.
 :::{admonition} Sync with gradient
 :class: tip
 `Sync with gradient`를 체크하면 항복점 선택 시 정의되는 elastic line의 기울기 값으로 입력됩니다.
 :::
+
+{.border-green}
+### 1.4 Setup raw data
+시편 인장 시험 데이터를 불러오고 항복점을 선택합니다.
+
+Load raw data
+: 시험 데이터를 가져오기 위해서 ![](images/MAT1.png) 아이콘을 클릭합니다.
+
+ ![](images/MAT2.png)
