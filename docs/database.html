@@ -20,7 +20,9 @@
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Strain Rate 커브 생성" href="gen_strain_rate_curve.html" />
+    <link rel="prev" title="시작하기" href="start_lamp.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,9 +49,18 @@
 <li class="toctree-l1"><a class="reference internal" href="dyna-fmi.html">Docker와 FMI를 이용한 LS-Dyna Cosimulation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">LAMP</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="start_lamp.html">시작하기</a></li>
-<li class="toctree-l1"><a class="reference internal" href="insert_material_to_db.html">데이터베이스 물성 추가</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">데이터베이스</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#mariadb">1. MariaDB 설치 및 현대제철 물성 추가</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">2. 데이터베이스에 물성 추가</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ui">1.1 입력 패널 UI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">1.2 물성 추가하기</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#db">1.3 DB에서 저장된 데이터 확인</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="gen_strain_rate_curve.html">Strain Rate 커브 생성</a></li>
 </ul>
 
@@ -88,12 +99,60 @@
 <h2>1. MariaDB 설치 및 현대제철 물성 추가<a class="headerlink" href="#mariadb" title="Permalink to this heading"></a></h2>
 <p>LAMP에서는 Steel계열의 현대제철 물성 데이터를 제공하고 있습니다. 현대제철 물성을 사용하기 위해서는 LAMP Server, MariaDB를 설치 후 LAMP Server에서 제공되는 현대제철 물성 데이터 (hyundaisteel_db.sql)파일을 로드 하여야 합니다. 자세한 내용은 <span class="xref myst">LAMP Server 설치</span>, <span class="xref myst">MariaDB 설치</span> 그리고 <span class="xref myst">현대제철 물성 적용</span>에서 확인 할 수 있습니다.</p>
 </section>
+<section id="id2">
+<h2>2. 데이터베이스에 물성 추가<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<p>LS-Dyna 키워드 파일에 정의되어 있는 Material 카드 정보를 데이터베이스에 저장할 수 있는 기능으로 현재 추가할 수 있는 물성 카드는 다음과 같습니다.</p>
+<ul class="simple">
+<li><p>*MAT_PIECEWISE_LINEAR_PLASTICITY</p></li>
+</ul>
+<section id="ui">
+<h3>1.1 입력 패널 UI<a class="headerlink" href="#ui" title="Permalink to this heading"></a></h3>
+<p>LAMP의 상단 아이콘 메뉴에서 <img alt="" src="_images/INSERTDB0.png" /> 아이콘을 클릭합니다.</p>
+<p><img alt="" src="_images/INSERTDB1.png" /></p>
+</section>
+<section id="id3">
+<h3>1.2 물성 추가하기<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p>키워드 파일 불러오기</p>
+<ul>
+<li><p>Keyword file(Double click to open file) 입력란에서 마우스로 더블 클릭합니다.</p></li>
+<li><p>LS-Dyna 키워드 파일을 선택합니다.</p></li>
+<li><p>불러온 키워드 파일에서 지원되는 물성 카드를 찾아 목록으로 표시합니다.</p></li>
+</ul>
+</li>
+<li><p>추가할 물성 선택</p>
+<ul>
+<li><p>좌측 첫번째(파란색 테두리)에서 DB에 추가할 물성을 선택합니다.</p></li>
+<li><p>가운데(노란색 테두리)에 선택한 물성 카드의 ID들이 표시되며 추가할 ID 항목을 선택합니다.</p></li>
+<li><p>우측 첫번째(녹색 테두리)에서 선택한 물성의 정보를 확인합니다.</p></li>
+<li><p>Check text 버튼을 통해 선택된 물성 카드를 텍스트로 확인 할 수 있습니다.</p></li>
+</ul>
+</li>
+<li><p>데이터베이스에 추가</p>
+<ul>
+<li><p>Insert to DB를 클릭합니다.</p></li>
+<li><p>아래 그림의 Insert User Data 창이 표시되며 물성 카드에 커브 데이터가 있다면 Curve ID가 표시됩니다.</p></li>
+<li><p>재료 데이터는 카테고리 항목 아래에 저장되기에 Category를 선택합니다. <img alt="" src="_images/INSERTDB3.png" />로 추가 할 수 있습니다.</p></li>
+<li><p>물성 이름(Material Name)을 입력하고 Insert를 눌러 DB에 데이터를 저장합니다.</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="_images/INSERTDB2.png" /></p>
+</section>
+<section id="db">
+<h3>1.3 DB에서 저장된 데이터 확인<a class="headerlink" href="#db" title="Permalink to this heading"></a></h3>
+<p>데이터베이스에 저장된 데이터 확인 및 출력은 <a class="reference internal" href="start_lamp.html"><span class="doc std std-doc">데이터베이스</span></a> 항목에서 확인할 수 있습니다.</p>
+</section>
+</section>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="start_lamp.html" class="btn btn-neutral float-left" title="시작하기" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gen_strain_rate_curve.html" class="btn btn-neutral float-right" title="Strain Rate 커브 생성" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

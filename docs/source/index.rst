@@ -17,5 +17,5 @@ Welcome to KOSTECH documentation!
    :caption: LAMP
 
    start_lamp
-   insert_material_to_db
+   database
    gen_strain_rate_curve
