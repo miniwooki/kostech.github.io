@@ -99,7 +99,7 @@
 <p>LAMP의 상단 아이콘 메뉴에서 <img alt="" src="_images/." /> 아이콘을 클릭하면 입력 패널 UI가 우측에 표시됩니다.</p>
 <p><img alt="" class="align-center" src="_images/MAT0.png" /></p>
 </section>
-<section class="border-red" id="working-directory">
+<section id="working-directory">
 <h3>1.2 Working directory<a class="headerlink" href="#working-directory" title="Permalink to this heading"></a></h3>
 <p>Working directory는 Curve Fitting으로 생성되는 데이터가 저장되는 경로를 지정합니다.</p>
 <div class="tip admonition">
@@ -120,7 +120,7 @@
 <p>시편 인장 시험 데이터를 불러오고 항복점을 선택합니다.</p>
 <dl class="simple myst">
 <dt>Load raw data</dt><dd><p>시험 데이터를 가져오기 위해서 <img alt="" src="_images/MAT1.png" /> 아이콘을 클릭하고 시험 데이터가 작성된 파일을 선택합니다. <br />
-지원되는 파일 형식은 다음과 같습니다. \</p>
+지원되는 파일 형식은 다음과 같습니다.</p>
 <ul class="simple">
 <li><p>*.txt : 데이터의 각 열은 tab으로 구분되어야 합니다.</p></li>
 <li><p>*.csv : 데이터의 각 열이 ,로 구분된 파일입니다.</p></li>
@@ -129,6 +129,28 @@
 </dd>
 </dl>
 <p><img alt="" class="align-center" src="_images/MAT2.png" /></p>
+<dl class="simple myst">
+<dt>Selection of data</dt><dd><p>가져올 strain-stress 데이터를 블록 선택하고 Data Type을 선택합니다.</p>
+</dd>
+</dl>
+<div class="admonition-selection-of-data-type admonition">
+<p class="admonition-title">Selection of Data Type</p>
+<p>Curve fitting은 Engineering strain-stress를 사용하여 수행되기 때문에 선택한 데이터는 Engineering strain-stress로 변환됩니다. 변환을 위해서 선택한 데이터가 어떤 형태의 데이터인지를 알아야 하기에 Data Type을 선택합니다.</p>
+<ul class="simple">
+<li><p>True Strain Stress : 선택한 데이터가 True Strain Stress(진응력)일 경우 선택합니다.</p></li>
+<li><p>Engineering Strain Stress : 선택한 데이터가 Engineering Strain Stress(공칭응력)일 경우 선택합니다.</p></li>
+<li><p>Engineering Strain[%] Stress : 선택한 데이터가 Engineering Strain Stress이면서 Strain이 %단위일 경우 선택합니다.</p></li>
+<li><p>Displacement vs. Force : 선택한 데이터가 Displacement-Force일 경우 선택합니다.</p></li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Displacement vs. Force일 경우 Engineering Strain Stress로 변환하기 위해 시편의 Guage Length, Specimen Width, Specimen thickness가 필요합니다. 활성화 되는 아래 입력란에 입력할 수 있습니다.</p>
+</div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>가져오는 strain-stress 데이터의 각 열은 반드시 서로 인접해야 합니다.</p>
+</div>
 </section>
 </section>
 </section>

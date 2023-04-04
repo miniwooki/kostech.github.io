@@ -8,7 +8,6 @@ LAMP의 상단 아이콘 메뉴에서 ![]() 아이콘을 클릭하면 입력 패
 
 ![](images/MAT0.png){align=center}
 
-{.border-red}
 ### 1.2 Working directory
 Working directory는 Curve Fitting으로 생성되는 데이터가 저장되는 경로를 지정합니다.
 :::{admonition} Selection of working directory
@@ -28,10 +27,27 @@ MAT_024 카드에 입력될 재료 물성 값을 입력합니다.
 
 Load raw data
 : 시험 데이터를 가져오기 위해서 ![](images/MAT1.png) 아이콘을 클릭하고 시험 데이터가 작성된 파일을 선택합니다. \
-  지원되는 파일 형식은 다음과 같습니다. \
+  지원되는 파일 형식은 다음과 같습니다.
 
   - *.txt : 데이터의 각 열은 tab으로 구분되어야 합니다.
   - *.csv : 데이터의 각 열이 ,로 구분된 파일입니다.
   - *.xlsx : 일반적으로 엑셀(Excel)에서 사용되는 파일 형식입니다. 
-
+ 
  ![](images/MAT2.png){align=center}
+
+ Selection of data
+ : 가져올 strain-stress 데이터를 블록 선택하고 Data Type을 선택합니다.
+ :::{admonition} Selection of Data Type
+ Curve fitting은 Engineering strain-stress를 사용하여 수행되기 때문에 선택한 데이터는 Engineering strain-stress로 변환됩니다. 변환을 위해서 선택한 데이터가 어떤 형태의 데이터인지를 알아야 하기에 Data Type을 선택합니다.
+
+ - True Strain Stress : 선택한 데이터가 True Strain Stress(진응력)일 경우 선택합니다.
+ - Engineering Strain Stress : 선택한 데이터가 Engineering Strain Stress(공칭응력)일 경우 선택합니다.
+ - Engineering Strain[%] Stress : 선택한 데이터가 Engineering Strain Stress이면서 Strain이 %단위일 경우 선택합니다.
+ - Displacement vs. Force : 선택한 데이터가 Displacement-Force일 경우 선택합니다.
+ 
+ :::{attention}
+ Displacement vs. Force일 경우 Engineering Strain Stress로 변환하기 위해 시편의 Guage Length, Specimen Width, Specimen thickness가 필요합니다. 활성화 되는 아래 입력란에 입력할 수 있습니다.
+ :::
+ :::{caution}
+ 가져오는 strain-stress 데이터의 각 열은 반드시 서로 인접해야 합니다.
+ :::
