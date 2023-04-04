@@ -8,8 +8,14 @@ LAMP의 상단 아이콘 메뉴에서 ![]() 아이콘을 클릭하면 입력 패
 
 ![](images/MAT0.png){align=center}
 
-{.bg-gray}
+{.bg-lightblue}
 Working directory(**빨간 테두리**)
-: 생성된 파일이 저장되는 경로를 지정합니다.
+: 생성된 파일이 저장되는 경로를 지정합니다. \
   입력란을 더블클릭 하여 경로를 선택할 수 있습니다.    
+{.bg-lightblue}
 Material property(**파랑 테두리**)
+: MAT_024 카드에 입력되는 재료 물성 데이터를 입력합니다. \
+:::{tip}
+`Sync with gradient`를 체크하면 항복점 선택으로 정의되는 elastic line의 기울기 값으로 입력됩니다.
+:::
+  
