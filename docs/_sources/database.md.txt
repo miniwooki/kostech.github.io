@@ -19,7 +19,7 @@ LAMP에서는 Steel계열의 현대제철 물성 데이터를 제공하고 있�
 :::{note}
 현대제철 물성은 암호화가 필수로 진행되며 Encryption 선택란이 비활성화 됩니다. \
 만약 `Encryption` 항목을 체크하였다면 암호화를 위해 LS-Dyna 솔버가 요구됩니다.
-:::\
+:::
 :::{admonition} Selection of LS-Dyna solver
 :class: tip
 **Double click to bring up the solver**에서 마우스 더블 클릭하고 LS-Dyna Solver가 있는 경로를 선택합니다. \
