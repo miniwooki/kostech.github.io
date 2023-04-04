@@ -35,7 +35,9 @@ import sys
 # source_parsers = {
 #     '.md': CommonMarkParser,
 # }
-
+html_css_files = [
+    'my_theme.css'
+]
 # source_suffix = ['.rst','.md']
 
 sys.path.insert(0, os.path.abspath('../../src/my_package'))
