@@ -52,7 +52,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="start_lamp.html">시작하기</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">데이터베이스</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#mariadb">1. MariaDB 설치 및 현대제철 물성 추가</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mariadb">1. MariaDB 설치 및 현대제철 물성</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id2">2. 물성 확인 및 출력</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id3">2.1 물성 확인</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#id4">2.2 물성 출력</a></li>
@@ -101,7 +101,7 @@
 MariaDB Version : 10.5.3</p>
 </div></blockquote>
 <section id="mariadb">
-<h2>1. MariaDB 설치 및 현대제철 물성 추가<a class="headerlink" href="#mariadb" title="Permalink to this heading"></a></h2>
+<h2>1. MariaDB 설치 및 현대제철 물성<a class="headerlink" href="#mariadb" title="Permalink to this heading"></a></h2>
 <p>LAMP에서는 Steel계열의 현대제철 물성 데이터를 제공하고 있습니다. 현대제철 물성을 사용하기 위해서는 LAMP Server, MariaDB를 설치 후 LAMP Server에서 제공되는 현대제철 물성 데이터 (hyundaisteel_db.sql)파일을 로드 하여야 합니다. 자세한 내용은 <a class="reference internal" href="start_lamp.html#lamp-server"><span class="std std-ref">LAMP Server 설치</span></a>, <a class="reference internal" href="start_lamp.html#mariadb"><span class="std std-ref">MariaDB 설치</span></a> 그리고 <a class="reference internal" href="start_lamp.html#id8"><span class="std std-ref">현대제철 물성 적용</span></a>에서 확인 할 수 있습니다.</p>
 </section>
 <section id="id2">
@@ -117,7 +117,14 @@ MariaDB Version : 10.5.3</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>현대제철 물성은 암호화가 필수로 진행되며 Encryption 선택란이 비활성화 됩니다. <br />
-만약 <code class="docutils literal notranslate"><span class="pre">Encryption</span></code> 항목을 체크하였다면 암호화를 위해 LS-Dyna 솔버가 요구됩니다.</p>
+만약 <code class="docutils literal notranslate"><span class="pre">Encryption</span></code> 항목을 체크하였다면 암호화를 위해 LS-Dyna 솔버와 gpg 설치가 필요합니다. <br />
+LS-Dyna solver 선택 및 gpg 설치는 아래 내용을 참고하시기 바랍니다.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>파일 암호화를 위해 gpg가 필요합니다. 설치가 되어 있지 않다면 아래 링크에서 다운로드 받아 설치하세요. <br />
+설치 확인은 command window에서 <strong>gpg –version</strong> 명령어로 출력되는 메세지를 확인하세요. <br />
+<a class="reference external" href="https://www.gpg4win.org/download.html">Gpg4win 설치 파일 다운로드</a></p>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Selection of LS-Dyna solver</p>
@@ -129,7 +136,7 @@ MariaDB Version : 10.5.3</p>
 Include Material Card : 출력파일에 물성 카드를 포함 할 것인지를 선택 <br />
 Encryption : 데이터를 암호화하여 출력할 것인지를 선택</p>
 </div></blockquote>
-<p><img alt="" class="align-center" src="_images/DB2.png" /></p>
+<p><img alt="" src="_images/DB2.png" /></p>
 </section>
 </section>
 <section id="id5">
