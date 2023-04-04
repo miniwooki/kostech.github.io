@@ -36,7 +36,8 @@ Load raw data
  ![](images/MAT2.png){align=center}
 
  Selection of data
- : 가져올 strain-stress 데이터를 블록 선택하고 Data Type을 선택합니다.
+ : 가져올 strain-stress 데이터를 블록 선택한 후에 Data Type을 선택하고 필요에 따라 `Name of Data`를 변경합니다. \
+   만약에 선택한 데이터가 strain rate를 가진다면 `Strain Rate`를 입력합니다. 
 
  :::{caution}
  가져오는 strain-stress 데이터의 각 열은 반드시 서로 인접해야 합니다.
