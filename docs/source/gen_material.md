@@ -16,7 +16,6 @@ Working directory는 Curve Fitting으로 생성되는 데이터가 저장되는 
 `Working directory` 선택은 입력란을 더블 클릭 하여 선택할 수 있습니다.
 :::
 
-{.border-blue}
 ### 1.3 Material property
 MAT_024 카드에 입력될 재료 물성 값을 입력합니다.
 :::{admonition} Sync with gradient
@@ -24,11 +23,15 @@ MAT_024 카드에 입력될 재료 물성 값을 입력합니다.
 `Sync with gradient`를 체크하면 항복점 선택 시 정의되는 elastic line의 기울기 값으로 입력됩니다.
 :::
 
-{.border-green}
 ### 1.4 Setup raw data
 시편 인장 시험 데이터를 불러오고 항복점을 선택합니다.
 
 Load raw data
-: 시험 데이터를 가져오기 위해서 ![](images/MAT1.png) 아이콘을 클릭합니다.
+: 시험 데이터를 가져오기 위해서 ![](images/MAT1.png) 아이콘을 클릭하고 시험 데이터가 작성된 파일을 선택합니다. \
+  지원되는 파일 형식은 다음과 같습니다. \
 
- ![](images/MAT2.png)
+  - *.txt : 데이터의 각 열은 tab으로 구분되어야 합니다.
+  - *.csv : 데이터의 각 열이 ,로 구분된 파일입니다.
+  - *.xlsx : 일반적으로 엑셀(Excel)에서 사용되는 파일 형식입니다. 
+
+ ![](images/MAT2.png){align=center}
