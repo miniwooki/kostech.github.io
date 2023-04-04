@@ -5,6 +5,7 @@
     background-color: lightblue;
 }
 .border-red {
+    border-style: solid;
     border-width: 1px;
     border-color: red;
 }
