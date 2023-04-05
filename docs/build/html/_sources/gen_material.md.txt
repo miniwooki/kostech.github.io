@@ -97,3 +97,24 @@ Curve fitting으로 생성된 curve가 잘못된 형태를 가질 경우가 있�
 :::{tip}
 `Strain to`를 0.1, `Num. points`를 25 입력시 0~0.1 strain 범위의 25개 점으로 curve가 생성됩니다.
 :::
+
+### 1.6 Determination of result
+Curve fitting이 성공적으로 수행되면 기본적으로 `Working directory`에 `Raw Data File` 입력란에 입력된 이름으로한 키워드 파일이 생성됩니다. 생성된 키워드 파일에는 *MAT_PIECEWISE_LINEAR_PLASTICITY 카드와 *DEFINE_CURVE가 포함되며 사용된 경도 모델의 수식과 fitting으로 결정된 변수들의 값을 확인할 수 있습니다. 만약 결정된 계수값들에 대해서 fitting된 결과가 만족스럽지 못하다면 상하 방향의 화살표 아이콘을 통해서 각 계수를 값을 변경하면서 curve를 직접 수정할 수 있습니다. 또한 생성된 키워드 파일의 저장 경로로의 이동 및 데이터베이스에 저장을 할 수 있으며 해당 내용은 아래 Tip 항목을 확인하시기 바랍니다.
+
+![](images/MAT3.png){.border-black}
+
+:::{admonition} Move the directory
+:class: tip
+![](images/MAT1.png) 아이콘으로 저장 경로로 이동 할 수 있습니다.
+:::
+
+:::{admonition} Move the directory
+:class: tip
+![](images/MAT4.png) 아이콘으로 생성된 데이터를 데이터베이스에 저장할 수 있습니다. 아이콘을 클릭하면 `Insert User Data` 창이 표시되며, Curve fitting으로 생성된 curve들의 목록이 표시되며 데이터베이스에 저장하고자 하는 curve를 체크합니다. Category를 선택합니다. Category는 ![](images/INSERTDB3.png) 아이콘으로 추가할 수 있습니다. `Material Name`에 이름을 입력하고 `Insert` 버튼으로 데이터베이스에 데이터를 저장합니다.
+
+:::{tip}
+데이터베이스에 저장되는 데이터는 모두 `Category`라는 항목 아래에 입력된 `Material Name`으로 저장됩니다. 
+:::
+
+![](images/INSERTDB2.png)
+:::

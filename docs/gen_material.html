@@ -57,6 +57,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#working-directory">1.2 Working directory</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#material-property">1.3 Material property</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#setup-raw-data">1.4 Setup raw data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#determination-of-result">1.6 Determination of result</a></li>
 </ul>
 </li>
 </ul>
@@ -197,6 +198,26 @@
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p><code class="docutils literal notranslate"><span class="pre">Strain</span> <span class="pre">to</span></code>를 0.1, <code class="docutils literal notranslate"><span class="pre">Num.</span> <span class="pre">points</span></code>를 25 입력시 0~0.1 strain 범위의 25개 점으로 curve가 생성됩니다.</p>
+</div>
+</section>
+<section id="determination-of-result">
+<h3>1.6 Determination of result<a class="headerlink" href="#determination-of-result" title="Permalink to this heading"></a></h3>
+<p>Curve fitting이 성공적으로 수행되면 기본적으로 <code class="docutils literal notranslate"><span class="pre">Working</span> <span class="pre">directory</span></code>에 <code class="docutils literal notranslate"><span class="pre">Raw</span> <span class="pre">Data</span> <span class="pre">File</span></code> 입력란에 입력된 이름으로한 키워드 파일이 생성됩니다. 생성된 키워드 파일에는 *MAT_PIECEWISE_LINEAR_PLASTICITY 카드와 *DEFINE_CURVE가 포함되며 사용된 경도 모델의 수식과 fitting으로 결정된 변수들의 값을 확인할 수 있습니다. 만약 결정된 계수값들에 대해서 fitting된 결과가 만족스럽지 못하다면 상하 방향의 화살표 아이콘을 통해서 각 계수를 값을 변경하면서 curve를 직접 수정할 수 있습니다. 또한 생성된 키워드 파일의 저장 경로로의 이동 및 데이터베이스에 저장을 할 수 있으며 해당 내용은 아래 Tip 항목을 확인하시기 바랍니다.</p>
+<p><img alt="" class="border-black" src="_images/MAT3.png" /></p>
+<div class="tip admonition">
+<p class="admonition-title">Move the directory</p>
+<p><img alt="" src="_images/MAT1.png" /> 아이콘으로 저장 경로로 이동 할 수 있습니다.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Move the directory</p>
+<p><img alt="" src="_images/MAT4.png" /> 아이콘으로 생성된 데이터를 데이터베이스에 저장할 수 있습니다. 아이콘을 클릭하면 <code class="docutils literal notranslate"><span class="pre">Insert</span> <span class="pre">User</span> <span class="pre">Data</span></code> 창이 표시되며, Curve fitting으로 생성된 curve들의 목록이 표시되며 데이터베이스에 저장하고자 하는 curve를 체크합니다. Category를 선택합니다. Category는 <img alt="" src="_images/INSERTDB3.png" /> 아이콘으로 추가할 수 있습니다. <code class="docutils literal notranslate"><span class="pre">Material</span> <span class="pre">Name</span></code>에 이름을 입력하고 <code class="docutils literal notranslate"><span class="pre">Insert</span></code> 버튼으로 데이터베이스에 데이터를 저장합니다.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>데이터베이스에 저장되는 데이터는 모두 <code class="docutils literal notranslate"><span class="pre">Category</span></code>라는 항목 아래에 입력된 <code class="docutils literal notranslate"><span class="pre">Material</span> <span class="pre">Name</span></code>으로 저장됩니다.</p>
+</div>
+</div>
+<p><img alt="" src="_images/INSERTDB2.png" /></p>
+<div class="docutils">
 </div>
 </section>
 </section>

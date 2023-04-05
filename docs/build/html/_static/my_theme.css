@@ -41,3 +41,8 @@
     border-width: 1px;
     border-color: purple;
 }
+.border-black {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
