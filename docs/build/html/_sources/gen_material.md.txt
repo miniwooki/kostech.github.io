@@ -37,7 +37,8 @@ Load raw data
 
  Selection of data
  : 가져올 strain-stress 데이터를 블록 선택한 후에 Data Type을 선택하고 필요에 따라 `Name of Data`를 변경합니다. \
-   만약에 선택한 데이터가 strain rate를 가진다면 `Strain Rate`를 입력합니다. 
+   만약에 선택한 데이터가 strain rate를 가진다면 `Strain Rate`를 입력합니다. \
+   모든 입력을 마친 후에 `Apply to chart` 버튼을 클릭합니다.
 
  :::{caution}
  가져오는 strain-stress 데이터의 각 열은 반드시 서로 인접해야 합니다.
@@ -54,4 +55,45 @@ Load raw data
  :::{attention}
  Displacement vs. Force일 경우 Engineering Strain Stress로 변환하기 위해 시편의 Guage Length, Specimen Width, Specimen thickness가 필요합니다. 활성화 되는 아래 입력란에 입력할 수 있습니다.
  :::
+
+ :::{tip}
+ 2개 이상의 시험 데이터를 가져와 일괄적으로 Curve fitting을 할 수 있습니다. 만약 각각의 데이터가 다른 strain rate를 가진다면 `Strain Rate` 항목을 입력하는 것을 권장드립니다.
  :::
+
+ :::
+
+Selection of yield point
+: 위 그림에서 `Chart` 탭을 클릭하게 되면 `Apply to chart`를 통해 가져온 데이터 curve를 확인할 수 있습니다. 소성영역에 해당하는 strain-stress curve의 fitting을 위해서 항복점을 정의해야 합니다. 항복점의 선택은 `Select` 버튼으로 할 수 있습니다.
+
+- `Select` 버튼 클릭
+- 마우스를 Chart로 이동하면 선택 도구가 생성
+- 커브에서 항복점을 선택
+- 필요에 따라 `Offset`을 입력
+
+![](images/pick_yield.gif)
+
+### 1.5 Generation of plastic strain-stress curve
+1.4에서 항목점을 결정하였다면 제공되는 경도 모델을 이용하여 Curve fitting을 통해 plastic strain-stress curve를 생성할 수 있습니다. LAMP에서 제공되는 경도 모델은 다음과 같습니다.
+
+- Min-Max Average
+- Voce
+- Swift
+- Ludwick
+- KIm-Tuan Hardening Model
+- Mixed Swift-Voce
+
+사용하고자 하는 경도 모델을 선택하고 필요에 따라 다음의 입력 값들을 수정합니다.
+
+- Begining Load Curve ID : 생성된 curve가 *DEFINE_CURVE로 정의 될때의 LCID입니다. 만약 2개 이상의 raw 데이터를 일괄적으로 fitting한다면 1씩 증가하면서 각 curve의 ID로 할당됩니다.
+- Coefficient : **Coefficient 값은 현재 사용되지 않습니다. 추후 삭제될 예정입니다.**
+- Initial Coefficient : Curve fitting에서 각 경도 모델의 계수 및 지수 값을 결정하게 되는데 Inital Coefficient는 계수 값의 초기값입니다.
+- Initial Exponential : 경도 모델의 지수 값의 초기값입니다.
+- Strain to : Curve fitting으로 생성되는 curve의 strain의 범위를 입력합니다.
+- Num. points : Curve fitting으로 생성되는 curve의 point의 수를 입력합니다.
+:::{tip}
+Curve fitting으로 생성된 curve가 잘못된 형태를 가질 경우가 있을 수 있습니다. \
+이럴 경우`Initial Coefficient`와 `Initial Exponential`을 조절하여 curve fitting을 다시 시도해 볼 수 있습니다.
+:::
+:::{tip}
+`Strain to`를 0.1, `Num. points`를 25 입력시 0~0.1 strain 범위의 25개 점으로 curve가 생성됩니다.
+:::
