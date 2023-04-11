@@ -46,7 +46,7 @@ Load raw data
 
  :::{admonition} Selection of Data Unit
  선택한 데이터의 단위계를 선택합니다. 선택한 데이터의 단위는 g.mm.N.MPa 단위로 변환되어 표시됩니다. \
- LAMP에서 지원하는 [전역 단위계 변환]()을 통해 실제 출력되는 데이터의 단위를 설정할 수 있습니다.
+ LAMP에서 지원하는 [전역 단위계 변환](./appendix.md#2-전역-단위-변환)을 통해 실제 출력되는 데이터의 단위를 설정할 수 있습니다.
  :::
 
  :::{admonition} Selection of Data Type
