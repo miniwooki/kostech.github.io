@@ -1,5 +1,8 @@
 # Appendix
 
+{#application-configuration-target}
+Application configuration : LAMP 프로그램에 전반적으로 적용되는 구성으로 프로그램 실행 시 적용되는 값입니다.
+
 ## 1. LS-Dyna 단위계
 LS-Dyna는 기본적으로 데이터의 단위계를 명시하지 않고, 입력되는 데이터의 값으로 계산되기 때문에 LS-Dyna에서 사용가능한 단위 셋(set)에 맞추어 값을 입력해야 합니다. 아래 사진에서 LS-Dyna에서 사용되는 단위계 셋(set)을 확인하세요. 아래 사진의 테이블은 LAMP에서 Help 메뉴의 Units 아이콘을 통해서 확인할 수 있습니다.
 
@@ -10,5 +13,5 @@ LS-Dyna는 기본적으로 데이터의 단위계를 명시하지 않고, 입력
 
 ![](images/MAT5.png)
 
- 사용가능한 단위계 목록에서 변환하고자 하는 단위계를 선택하면 UI에 입력된 값들이 선택된 단위계로 변환됩니다. 선택된 단위계는 [Application configuration](./comments.md#application-configuration-target) 요소로써 다시 변경하지 않는 한 설정이 유지 됩니다. 
+ 사용가능한 단위계 목록에서 변환하고자 하는 단위계를 선택하면 UI에 입력된 값들이 선택된 단위계로 변환됩니다. 선택된 단위계는 [Application configuration](#application-configuration-target) 요소로써 다시 변경하지 않는 한 설정이 유지 됩니다. 
 
