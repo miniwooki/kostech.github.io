@@ -10,5 +10,5 @@ LS-Dyna는 기본적으로 데이터의 단위계를 명시하지 않고, 입력
 
 ![](images/MAT5.png)
 
- 사용가능한 단위계 목록에서 변환하고자 하는 단위계를 선택하면 UI에 입력된 값들이 선택된 단위계로 변환됩니다. 선택된 단위계는 [Application configuration](comments#application-configuration-target) 요소로써 다시 변경하지 않는 한 설정이 유지 됩니다. 
+ 사용가능한 단위계 목록에서 변환하고자 하는 단위계를 선택하면 UI에 입력된 값들이 선택된 단위계로 변환됩니다. 선택된 단위계는 [Application configuration](./comments.md#application-configuration-target) 요소로써 다시 변경하지 않는 한 설정이 유지 됩니다. 
 
