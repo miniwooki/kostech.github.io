@@ -20,3 +20,5 @@ Welcome to KOSTECH documentation!
    gen_material
    database
    gen_strain_rate_curve
+   comments
+   appendix
