@@ -22,3 +22,9 @@ Welcome to KOSTECH documentation!
    gen_strain_rate_curve
    comments
    appendix
+
+.. toctree::
+   :maxdepth: 2
+   :caption: D3VIEW
+
+   d3view_install

@@ -78,5 +78,5 @@ LAMP의 상단 아이콘 메뉴에서 ![](images/INSERTDB0.png){width=30px} 아�
 
 :::{note}
 * 제공되는 현대제철 물성은 삭제 할 수 없습니다. \
-* Category 항목을 제거하면 해당 Category에 추가된 Data 모두를 삭제합니다. \
+* Category 항목을 제거하면 해당 Category에 추가된 Data 모두를 삭제합니다.
 :::
