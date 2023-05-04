@@ -123,7 +123,7 @@ MariaDB Version : 10.5.3</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>현대제철 물성은 암호화가 필수로 진행되며 Encryption 선택란이 비활성화 됩니다. <br />
-만약 <code class="docutils literal notranslate"><span class="pre">Encryption</span></code> 항목을 체크하였다면 암호화를 위해 LS-Dyna 솔버와 gpg 설치가 필요합니다. <br />
+사용자 물성을 출력할 경우 암호화를 위해 <code class="docutils literal notranslate"><span class="pre">Encryption</span></code> 항목을 체크하였다면 암호화를 위해 LS-Dyna 솔버와 gpg 설치가 필요합니다. <br />
 LS-Dyna solver 선택 및 gpg 설치는 아래 내용을 참고하시기 바랍니다.</p>
 </div>
 <div class="admonition important">
@@ -143,6 +143,11 @@ Include Material Card : 출력파일에 물성 카드를 포함 할 것인지를
 Encryption : 데이터를 암호화하여 출력할 것인지를 선택</p>
 </div></blockquote>
 <p><img alt="" src="_images/DB2.png" /></p>
+<div class="attention admonition">
+<p class="admonition-title">Expiration of encrypt file</p>
+<p>데이터베이스에서 암호화 파일로 데이터를 출력한 경우 암호화 파일은 LAMP의 라이선스 기간까지만 사용 가능합니다. <br />
+즉 LAMP 라이선스 기간이 만료되면 LAMP에서 출력한 암호화 파일은 사용할 수 없으며, 해석 시 에러와 함께 종료 될 수 있습니다.</p>
+</div>
 </section>
 </section>
 <section id="id5">
