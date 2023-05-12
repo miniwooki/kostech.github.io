@@ -116,9 +116,61 @@ get_python_path.sh는 서버의 python 경로를 얻기 위한 스크립트이�
 cronjob은 리눅스에서 일련의 작업을 스케듈링해주는 툴이며, lucy에서 서버의 상태를 주기적으로 sync 하는 등의 작업에 사용된다. 
 
 - Issue 1 : d3view 웹 페이지에서 server의 상태를 주기적으로 sync 해주기 위해 작업이 필요함
-    - server_sync.sh 스크립트를 작성
+    - lucy/bin 디렉토리에 server_sync.sh 스크립트를 작성
     ```Bash
     #!/bin/bash
     source ~/.bashrc
     /opt/d3view/d3VIEW-CENTOS76-2.1/lucy/bin/lucy server sync -s "RNTier" > /tmp/d3view_server_sync.log
+    ```
+    - crontab -e를 입력하고 아래와 같이 라인을 추가
+    ```Bash
+    */1 * * * * {D3VIEW_INSTALL_PATH}/lucy/bin/server.sync.sh
+    ```
+    - crontab에 대한 설명은 아래 링크를 참조 \
+    [crontab of JDM's Blog](https://jdm.kr/blog/2)
+
+### 3.4 lsdyna.jinja 설정
+lsdyna.jinja는 d3view 웹페이지에서 job 제출 시 ls-dyna 실행 command를 작성하는 룰이 작성된 파일로 짐작된다.
+
+- Issue 1 : 웹 페이지에서 job 제출 시 사용자가 입력하는 memory 옵션 값이 반영되지 않는 문제
+    - lsdyna.jinja에 memory 값이 hard code 되어 있는데 이 부분을 전달되는 변수로 설정되도록 변경 \
+    ```Django
+    memory={{solver_main_memory}} memory2={{solver_slave_memory}}
+    ```
+
+### 3.5 서버에서 사용되는 scheduler에 맞는 *.batch.jinja 파일 수정
+d3view에서 제출 되는 job은 linux의 scheduler로 실행 된다. 여기서 scheduler는 SGE, PBS등의 cluster job scheduler를 의미한다.
+
+- Issue 1 : 서버에서 사용하는 job scheduler의 양식에 lucy에서 활용되는 환경변수 설정을 할 필요가 있음
+    - 기본적으로 아래와 같이 환경변수를 설정
+    ```Bash
+    export SOLVER_INPUT_FILE={{ solver_input }}
+    export SOLVER_VERSION={{ solver_version }}
+    export SOLVER_TOTAL_NCPU={{ num_cores }}
+    export SOLVER_TOTAL_NODES={{ solver_total_nodes }}
+    export SOLVER_NODE_NCPU={{ solver_node_ncpu }}
+    export SOLVER_PRECISION={{ solver_precision }}
+    export SOLVER_MAIN_MEMORY={{ solver_main_memory }}
+    export SOLVER_DECOMP_MEMORY={{ solver_decomp_memory }}
+    export SOLVER_TYPE={{ solver_type }}
+    export SCHEDULER_TYPE={{ scheduler_type }}
+    export SCHEDULER_QUEUE={{ job_queue }}
+    export SCRIPTS_BASE_DIR={{ scripts_base_dir }}
+    export FROM_HOST={{ from_host }}
+    export FROM_USER={{ from_user }}
+    export FROM_DIR={{ from_dir }}
+    export RUN_DIR={{ from_dir }}
+    export RSH={{ rsh }}
+    export RCP={{ rcp }}
+    export RSYNC={{ rsync }}
+    export HPC_SERVER={{ hpcserver_name }}
+    export SOLUTION_TYPE={{ solution_type }}
+    export SOLVER_JOB_NAME={{ solver_job_name }}
+    export SOLVER_WORK_DIR={{ solver_work_dir }}
+    export HANG_JOB_TIMEOUT={{ hang_job_timeout }}
+    export HANG_JOB_TERMINATE={{ hang_job_terminate }}
+    export SLICE="{{ slice }}"
+    export MAX_COMPRESSION_STATES=10
+    export ADVANCED_POST_PROCESSING={{ advanced_images }}
+    export PBS_JOBNAME={{ solver_job_name }}
     ```

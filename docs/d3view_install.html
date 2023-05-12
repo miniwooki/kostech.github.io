@@ -75,6 +75,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#xvfb-sh">3.1 Xvfb.sh 설정</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#get-python-path-sh">3.2 get_python_path.sh 설정</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cronjob">3.3 cronjob 설정</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lsdyna-jinja">3.4 lsdyna.jinja 설정</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scheduler-batch-jinja">3.5 서버에서 사용되는 scheduler에 맞는 *.batch.jinja 파일 수정</a></li>
 </ul>
 </li>
 </ul>
@@ -262,11 +264,77 @@ Port : {database port number} (ex. 33060)</p>
 <ul>
 <li><p>Issue 1 : d3view 웹 페이지에서 server의 상태를 주기적으로 sync 해주기 위해 작업이 필요함</p>
 <ul class="simple">
-<li><p>server_sync.sh 스크립트를 작성</p></li>
+<li><p>lucy/bin 디렉토리에 server_sync.sh 스크립트를 작성</p></li>
 </ul>
 <div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="ch">#!/bin/bash</span>
 <span class="linenos">2</span><span class="nb">source</span><span class="w"> </span>~/.bashrc
 <span class="linenos">3</span>/opt/d3view/d3VIEW-CENTOS76-2.1/lucy/bin/lucy<span class="w"> </span>server<span class="w"> </span>sync<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;RNTier&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/tmp/d3view_server_sync.log
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>crontab -e를 입력하고 아래와 같이 라인을 추가</p></li>
+</ul>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>*/1<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span>*<span class="w"> </span><span class="o">{</span>D3VIEW_INSTALL_PATH<span class="o">}</span>/lucy/bin/server.sync.sh
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>crontab에 대한 설명은 아래 링크를 참조 <br />
+<a class="reference external" href="https://jdm.kr/blog/2">crontab of JDM’s Blog</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="lsdyna-jinja">
+<h3>3.4 lsdyna.jinja 설정<a class="headerlink" href="#lsdyna-jinja" title="Permalink to this heading"></a></h3>
+<p>lsdyna.jinja는 d3view 웹페이지에서 job 제출 시 ls-dyna 실행 command를 작성하는 룰이 작성된 파일로 짐작된다.</p>
+<ul>
+<li><p>Issue 1 : 웹 페이지에서 job 제출 시 사용자가 입력하는 memory 옵션 값이 반영되지 않는 문제</p>
+<ul class="simple">
+<li><p>lsdyna.jinja에 memory 값이 hard code 되어 있는데 이 부분을 전달되는 변수로 설정되도록 변경 \</p></li>
+</ul>
+<div class="highlight-Django notranslate"><div class="highlight"><pre><span></span><span class="x">memory=</span><span class="cp">{{</span><span class="nv">solver_main_memory</span><span class="cp">}}</span><span class="x"> memory2=</span><span class="cp">{{</span><span class="nv">solver_slave_memory</span><span class="cp">}}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="scheduler-batch-jinja">
+<h3>3.5 서버에서 사용되는 scheduler에 맞는 *.batch.jinja 파일 수정<a class="headerlink" href="#scheduler-batch-jinja" title="Permalink to this heading"></a></h3>
+<p>d3view에서 제출 되는 job은 linux의 scheduler로 실행 된다. 여기서 scheduler는 SGE, PBS등의 cluster job scheduler를 의미한다.</p>
+<ul>
+<li><p>Issue 1 : 서버에서 사용하는 job scheduler의 양식에 lucy에서 활용되는 환경변수 설정을 할 필요가 있음</p>
+<ul class="simple">
+<li><p>기본적으로 아래와 같이 환경변수를 설정</p></li>
+</ul>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nb">export</span><span class="w"> </span><span class="nv">SOLVER_INPUT_FILE</span><span class="o">={{</span><span class="w"> </span>solver_input<span class="w"> </span><span class="o">}}</span>
+<span class="linenos"> 2</span><span class="nb">export</span><span class="w"> </span><span class="nv">SOLVER_VERSION</span><span class="o">={{</span><span class="w"> </span>solver_version<span class="w"> </span><span class="o">}}</span>
+<span class="linenos"> 3</span><span class="nb">export</span><span class="w"> </span><span class="nv">SOLVER_TOTAL_NCPU</span><span class="o">={{</span><span class="w"> </span>num_cores<span class="w"> </span><span class="o">}}</span>
+<span class="linenos"> 4</span><span class="nb">export</span><span class="w"> </span><span class="nv">SOLVER_TOTAL_NODES</span><span class="o">={{</span><span class="w"> </span>solver_total_nodes<span class="w"> </span><span class="o">}}</span>
+<span class="linenos"> 5</span><span class="nb">export</span><span class="w"> </span><span class="nv">SOLVER_NODE_NCPU</span><span class="o">={{</span><span class="w"> </span>solver_node_ncpu<span class="w"> </span><span class="o">}}</span>
+<span class="linenos"> 6</span><span class="nb">export</span><span class="w"> </span><span class="nv">SOLVER_PRECISION</span><span class="o">={{</span><span class="w"> </span>solver_precision<span class="w"> </span><span class="o">}}</span>
+<span class="linenos"> 7</span><span class="nb">export</span><span class="w"> </span><span class="nv">SOLVER_MAIN_MEMORY</span><span class="o">={{</span><span class="w"> </span>solver_main_memory<span class="w"> </span><span class="o">}}</span>
+<span class="linenos"> 8</span><span class="nb">export</span><span class="w"> </span><span class="nv">SOLVER_DECOMP_MEMORY</span><span class="o">={{</span><span class="w"> </span>solver_decomp_memory<span class="w"> </span><span class="o">}}</span>
+<span class="linenos"> 9</span><span class="nb">export</span><span class="w"> </span><span class="nv">SOLVER_TYPE</span><span class="o">={{</span><span class="w"> </span>solver_type<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">10</span><span class="nb">export</span><span class="w"> </span><span class="nv">SCHEDULER_TYPE</span><span class="o">={{</span><span class="w"> </span>scheduler_type<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">11</span><span class="nb">export</span><span class="w"> </span><span class="nv">SCHEDULER_QUEUE</span><span class="o">={{</span><span class="w"> </span>job_queue<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">12</span><span class="nb">export</span><span class="w"> </span><span class="nv">SCRIPTS_BASE_DIR</span><span class="o">={{</span><span class="w"> </span>scripts_base_dir<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">13</span><span class="nb">export</span><span class="w"> </span><span class="nv">FROM_HOST</span><span class="o">={{</span><span class="w"> </span>from_host<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">14</span><span class="nb">export</span><span class="w"> </span><span class="nv">FROM_USER</span><span class="o">={{</span><span class="w"> </span>from_user<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">15</span><span class="nb">export</span><span class="w"> </span><span class="nv">FROM_DIR</span><span class="o">={{</span><span class="w"> </span>from_dir<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">16</span><span class="nb">export</span><span class="w"> </span><span class="nv">RUN_DIR</span><span class="o">={{</span><span class="w"> </span>from_dir<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">17</span><span class="nb">export</span><span class="w"> </span><span class="nv">RSH</span><span class="o">={{</span><span class="w"> </span>rsh<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">18</span><span class="nb">export</span><span class="w"> </span><span class="nv">RCP</span><span class="o">={{</span><span class="w"> </span>rcp<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">19</span><span class="nb">export</span><span class="w"> </span><span class="nv">RSYNC</span><span class="o">={{</span><span class="w"> </span>rsync<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">20</span><span class="nb">export</span><span class="w"> </span><span class="nv">HPC_SERVER</span><span class="o">={{</span><span class="w"> </span>hpcserver_name<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">21</span><span class="nb">export</span><span class="w"> </span><span class="nv">SOLUTION_TYPE</span><span class="o">={{</span><span class="w"> </span>solution_type<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">22</span><span class="nb">export</span><span class="w"> </span><span class="nv">SOLVER_JOB_NAME</span><span class="o">={{</span><span class="w"> </span>solver_job_name<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">23</span><span class="nb">export</span><span class="w"> </span><span class="nv">SOLVER_WORK_DIR</span><span class="o">={{</span><span class="w"> </span>solver_work_dir<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">24</span><span class="nb">export</span><span class="w"> </span><span class="nv">HANG_JOB_TIMEOUT</span><span class="o">={{</span><span class="w"> </span>hang_job_timeout<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">25</span><span class="nb">export</span><span class="w"> </span><span class="nv">HANG_JOB_TERMINATE</span><span class="o">={{</span><span class="w"> </span>hang_job_terminate<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">26</span><span class="nb">export</span><span class="w"> </span><span class="nv">SLICE</span><span class="o">=</span><span class="s2">&quot;{{ slice }}&quot;</span>
+<span class="linenos">27</span><span class="nb">export</span><span class="w"> </span><span class="nv">MAX_COMPRESSION_STATES</span><span class="o">=</span><span class="m">10</span>
+<span class="linenos">28</span><span class="nb">export</span><span class="w"> </span><span class="nv">ADVANCED_POST_PROCESSING</span><span class="o">={{</span><span class="w"> </span>advanced_images<span class="w"> </span><span class="o">}}</span>
+<span class="linenos">29</span><span class="nb">export</span><span class="w"> </span><span class="nv">PBS_JOBNAME</span><span class="o">={{</span><span class="w"> </span>solver_job_name<span class="w"> </span><span class="o">}}</span>
 </pre></div>
 </div>
 </li>
