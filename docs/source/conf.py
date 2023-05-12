@@ -25,6 +25,7 @@ myst_enable_extensions = [
     "attrs_block",
 ]
 
+myst_number_code_blocks = ["Bash"]
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output

@@ -94,3 +94,31 @@ Port : {database port number} (ex. 33060)
 ### 2.2 사용자 관리
 d3VIEW 사용자는 관리자 계정으로 추가 및 수정등을 할 수 있습니다. 기본적인 사용자 관리 내용은 아래 링크에서 확인 할 수 있습니다. \
 [https://www.d3view.com/docs/master/getting_started/Administration.html#users](https://www.d3view.com/docs/master/getting_started/Administration.html#users)
+
+## 3 LUCY 설정
+설치된 서버의 환경에 따라 LUCY의 설정을 변경해야 할 경우가 있으며 설치를 진행하면서 시도했었던 내용들을 설명한다.
+
+### 3.1 Xvfb.sh 설정
+Xvfb.sh 시뮬레이션에서 생성된 결과들의 이미지 혹은 애니메이션을 작성하는데 필요한 display 서버 설정 및 실행 스크립트이다. lucy/bin 디렉토리에 위치하고 있다.
+
+- Issue 1 : lsprepost를 사용하는데 라이브러리 파일을 찾을 수 없다는 에러가 발생하였음.
+    - Xvfb.sh 파일에 lsprepost 라이브러리 디렉토리를 export 하여 해결
+    - export LD_LIBRARY_PATH={LSPREPOST_PATH}/lib:$LD_LIBRARY_PATH
+
+### 3.2 get_python_path.sh 설정
+get_python_path.sh는 서버의 python 경로를 얻기 위한 스크립트이다. 기본적으로 d3VIEW는 python 실행 파일과 관련 모듈들이 같이 설치된다. 사용되는 python 버전은 2.7이다. 
+
+- Issue 1 : get_python_path.sh에서 python 경로를 제대로 가져오지 못함.
+    - get_python_path.sh에서는 PYTHON_PATH 변수로 python 경로를 export 함
+    - 정확환 경로로 설정이 되지 않는 경우 임의로 python 실행 파일의 경로를 PYTHON_PATH로 설정
+
+### 3.3 cronjob 설정
+cronjob은 리눅스에서 일련의 작업을 스케듈링해주는 툴이며, lucy에서 서버의 상태를 주기적으로 sync 하는 등의 작업에 사용된다. 
+
+- Issue 1 : d3view 웹 페이지에서 server의 상태를 주기적으로 sync 해주기 위해 작업이 필요함
+    - server_sync.sh 스크립트를 작성
+    ```Bash
+    #!/bin/bash
+    source ~/.bashrc
+    /opt/d3view/d3VIEW-CENTOS76-2.1/lucy/bin/lucy server sync -s "RNTier" > /tmp/d3view_server_sync.log
+    ```

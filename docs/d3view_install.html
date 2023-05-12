@@ -71,6 +71,12 @@
 <li class="toctree-l3"><a class="reference internal" href="#id8">2.2 사용자 관리</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#lucy">3 LUCY 설정</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#xvfb-sh">3.1 Xvfb.sh 설정</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-python-path-sh">3.2 get_python_path.sh 설정</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cronjob">3.3 cronjob 설정</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -221,6 +227,50 @@ Port : {database port number} (ex. 33060)</p>
 <h3>2.2 사용자 관리<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
 <p>d3VIEW 사용자는 관리자 계정으로 추가 및 수정등을 할 수 있습니다. 기본적인 사용자 관리 내용은 아래 링크에서 확인 할 수 있습니다. <br />
 <a class="reference external" href="https://www.d3view.com/docs/master/getting_started/Administration.html#users">https://www.d3view.com/docs/master/getting_started/Administration.html#users</a></p>
+</section>
+</section>
+<section id="lucy">
+<h2>3 LUCY 설정<a class="headerlink" href="#lucy" title="Permalink to this heading"></a></h2>
+<p>설치된 서버의 환경에 따라 LUCY의 설정을 변경해야 할 경우가 있으며 설치를 진행하면서 시도했었던 내용들을 설명한다.</p>
+<section id="xvfb-sh">
+<h3>3.1 Xvfb.sh 설정<a class="headerlink" href="#xvfb-sh" title="Permalink to this heading"></a></h3>
+<p>Xvfb.sh 시뮬레이션에서 생성된 결과들의 이미지 혹은 애니메이션을 작성하는데 필요한 display 서버 설정 및 실행 스크립트이다. lucy/bin 디렉토리에 위치하고 있다.</p>
+<ul class="simple">
+<li><p>Issue 1 : lsprepost를 사용하는데 라이브러리 파일을 찾을 수 없다는 에러가 발생하였음.</p>
+<ul>
+<li><p>Xvfb.sh 파일에 lsprepost 라이브러리 디렉토리를 export 하여 해결</p></li>
+<li><p>export LD_LIBRARY_PATH={LSPREPOST_PATH}/lib:$LD_LIBRARY_PATH</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="get-python-path-sh">
+<h3>3.2 get_python_path.sh 설정<a class="headerlink" href="#get-python-path-sh" title="Permalink to this heading"></a></h3>
+<p>get_python_path.sh는 서버의 python 경로를 얻기 위한 스크립트이다. 기본적으로 d3VIEW는 python 실행 파일과 관련 모듈들이 같이 설치된다. 사용되는 python 버전은 2.7이다.</p>
+<ul class="simple">
+<li><p>Issue 1 : get_python_path.sh에서 python 경로를 제대로 가져오지 못함.</p>
+<ul>
+<li><p>get_python_path.sh에서는 PYTHON_PATH 변수로 python 경로를 export 함</p></li>
+<li><p>정확환 경로로 설정이 되지 않는 경우 임의로 python 실행 파일의 경로를 PYTHON_PATH로 설정</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="cronjob">
+<h3>3.3 cronjob 설정<a class="headerlink" href="#cronjob" title="Permalink to this heading"></a></h3>
+<p>cronjob은 리눅스에서 일련의 작업을 스케듈링해주는 툴이며, lucy에서 서버의 상태를 주기적으로 sync 하는 등의 작업에 사용된다.</p>
+<ul>
+<li><p>Issue 1 : d3view 웹 페이지에서 server의 상태를 주기적으로 sync 해주기 위해 작업이 필요함</p>
+<ul class="simple">
+<li><p>server_sync.sh 스크립트를 작성</p></li>
+</ul>
+<div class="highlight-Bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="ch">#!/bin/bash</span>
+<span class="linenos">2</span><span class="nb">source</span><span class="w"> </span>~/.bashrc
+<span class="linenos">3</span>/opt/d3view/d3VIEW-CENTOS76-2.1/lucy/bin/lucy<span class="w"> </span>server<span class="w"> </span>sync<span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;RNTier&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/tmp/d3view_server_sync.log
+</pre></div>
+</div>
+</li>
+</ul>
 </section>
 </section>
 </section>
