@@ -125,6 +125,10 @@ Step 3에서는 Step 2에서 진행된 해석 결과에서 최적의 결과를 �
 ### Specimen Model
 각 시편의 현재 상태를 표시합니다. 최적화 시뮬레이션이 완료된 시편 모델에 대해서 최적 결과 선택 및 Triaxiality를 계산할 수 있습니다.
 
+- <span style="color:red">빨강</span> : 빨강색으로 Step3에서 진행된 내용이 없을 경우에 표시됩니다.
+- <span style="color:orange">주황</span> : 주황색은 시편 모델의 최적화 시뮬레이션 결과의 Sampling 데이터를 읽은 상태로 아직 최적 결과가 선택되지 않은 상태입니다.
+- <span style="color:green">초록</span> : 초록색은 시편 모델의 최적 결과가 선택되었고 Triaxiality가 계산된 상태를 의미 합니다.
+
 ### Selection Optimal Case
 Step 2에서 최적화 시뮬레이션에서 생성된 결과들에서 사용자는 시험 target curve를 잘 표현하는 최적의 결과를 선택해야 합니다. 먼저 사용자는 LS-OPT에서 사용되는 viewer 프로그램을 통해 결과를 비교하고 최종적으로 하나의 결과를 선택합니다. 이를 위해 상단 Specimen Model 목록에서 확인하고자 하는 하나의 모델을 선택하고 제일 하단에 위치한 버튼 중에서 Open Viewer 버튼을 클릭합니다. 
 
@@ -210,10 +214,20 @@ Interpolation을 하기 위한 Min, Max Point 값과 생성할 Curve 데이터�
 ## Step 4
 Step 4에서는 메쉬 정규화(Mesh Regularization)을 수행합니다. 메쉬 정규화에는 Step 1에서 사용했던 시편 모델중에서 하나를 Reference로 선택해야 합니다. 선택된 시편모델에 대해서 실제 인장으로 변형되고 변위가 계산되는 요소의 사이즈를 달리하는 최소 3개의 시편 모델이 요구 됩니다.
 
+![](images/gissmo/gissmo7.png)
+
 :::{admonition} Mesh Regularization
 :class: Tip
 재료의 파단은 메쉬 사이즈에 따라서 UTS 이후 결과에 차이가 있고 비선형 거동의 경우 메쉬 사이즈에 큰 영향을 받습니다. 실제 일정한 메쉬 사이즈에서 도출된 GISSMO 데이터를 일정하지 않은 해석 모델에 적용할 경우 부정확한 결과를 보일 수 있습니다. 따라서 메쉬 사이즈에 따른 Scaling Factor Curve를 생성하여 GISSMO에 적용합니다. 일반적으로 Reference 모델의 메쉬 사이즈는 0.5mm로 하며 메쉬 정규화를 위한 시편 모델은 0.4mm, 0.8mm, 1.5mm로 구성합니다. 0.5mm 일 때의 Scaling Factor를 1로 하여 LS-OPT 최적화 시뮬레이션으로 0.4mm, 0.8mm, 1.5mm일 때의 Scaling Factor 계산합니다. 결과적으로 총 4개의 Scaling Factor를 사용하여 Curve Fitting으로 Curve를 생성하고 GISSMO 물성 카드에 적용합니다. 
 :::
 
-![](images/gissmo/gissmo7.png)
+### Selection of Reference Model
+- Reference Speciment : 하나의 Reference 모델을 선택합니다. 일반적으로 단순한 Uniaxial 모델을 사용합니다.
 
+### Add Specimen Model
+사전에 준비된 시편 모델들을 Add 버튼을 클릭하여 추가합니다. Step 4에서 추가된 모델들은 두 개의 상태로 진행 상황을 개략적으로 확인할 수 있습니다.
+
+:좌측 상태 박스:
+- <span style="color:red">좌측 빨강</span> : 빨강색으로 Step3에서 진행된 내용이 없을 경우에 표시됩니다.
+- <span style="color:orange">좌측 주황</span> : 주황색은 시편 모델의 최적화 시뮬레이션 결과의 Sampling 데이터를 읽은 상태로 아직 최적 결과가 선택되지 않은 상태입니다.
+- <span style="color:green">좍측 초록</span> : 초록색은 시편 모델의 최적 결과가 선택되었고 Triaxiality가 계산된 상태를 의미 합니다.
