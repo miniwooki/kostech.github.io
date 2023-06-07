@@ -228,6 +228,11 @@ Step 4에서는 메쉬 정규화(Mesh Regularization)을 수행합니다. 메쉬
 사전에 준비된 시편 모델들을 Add 버튼을 클릭하여 추가합니다. Step 4에서 추가된 모델들은 두 개의 상태로 진행 상황을 개략적으로 확인할 수 있습니다.
 
 :좌측 상태 박스:
-- <span style="color:red">좌측 빨강</span> : 빨강색으로 Step3에서 진행된 내용이 없을 경우에 표시됩니다.
-- <span style="color:orange">좌측 주황</span> : 주황색은 시편 모델의 최적화 시뮬레이션 결과의 Sampling 데이터를 읽은 상태로 아직 최적 결과가 선택되지 않은 상태입니다.
-- <span style="color:green">좍측 초록</span> : 초록색은 시편 모델의 최적 결과가 선택되었고 Triaxiality가 계산된 상태를 의미 합니다.
+- <span style="color:red">빨강</span> : 메쉬 정규화에 대한 최적화 시뮬레이션이 수행되지 않았음을 나타냅니다.
+- <span style="color:orange">주황</span> : 메쉬 정규화에 대한 최적화 시뮬레이션이 진행중임을 나타냅니다.
+- <span style="color:green">초록</span> : 메쉬 정규롸에 대한 최적화 시뮬레이션이 정상적으로 수행되었음을 나타냅니다.
+
+:우측 상태 박스:
+- <span style="color:red">빨강</span> : Step 3과 유사하게 결과 선택에 있어 진행된 내용이 없음을 나타냅니다.
+- <span style="color:orange">주황</span> : 최적화 시뮬레이션의 Sampling 결과 데이터를 읽은 상태로 아직 최적 결과가 선택되지 않았음을 의미합니다.
+- <span style="color:green">초록</span> : 최적 결과가 선택되었으며, Scaling Factor 데이터를 이용한 Curve Fitting이 가능한 상태를 나타냅니다.
