@@ -128,8 +128,8 @@ Step 3에서는 Step 2에서 진행된 해석 결과에서 최적의 결과를 �
 
 - Triaxiality vs Plastic Strain Data File : Triaxiality vs Plastic Strain Data가 기록된 csv파일 이름을 표시하고 우측 아이콘을 통해 그래프로 확인 할 수 있습니다.
 - Triaxiality vs Fracture Data File : Triaxiality vs Fracture Data가 기록된 csv파일 이름을 표시하고 Data를 이용해 interpolation으로 Curve를 생성할 수 있습니다.
-    - <img src="images/gissmo/ShowFailurePoint.png" width="24px"> : Triaxility vs Fracture 데이터 포인터를 표시합니다.
-    - <img src="images/gissmo/ShowFailurPanel.png" width="24px"> : Triaxility vs Fracture 데이터 포인터를 기반으로 Curve를 생성 할 수 있는 도구를 표시합니다.
+    - <img src="images/ShowFailurePoint.png" width="24px"> : Triaxility vs Fracture 데이터 포인터를 표시합니다.
+    - <img src="images/ShowFailurePanel.png" width="24px"> : Triaxility vs Fracture 데이터 포인터를 기반으로 Curve를 생성 할 수 있는 도구를 표시합니다.
 
 ::::{tab-set}
 
