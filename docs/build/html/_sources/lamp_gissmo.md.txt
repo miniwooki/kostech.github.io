@@ -125,6 +125,35 @@ Step 3에서는 Step 2에서 진행된 해석 결과에서 최적의 결과를 �
 ### Specimen Model
 각 시편의 현재 상태를 표시합니다. 최적화 시뮬레이션이 완료된 시편 모델에 대해서 최적 결과 선택 및 Triaxiality를 계산할 수 있습니다.
 
+### Selection Optimal Case
+Step 2에서 최적화 시뮬레이션에서 생성된 결과들에서 사용자는 시험 target curve를 잘 표현하는 최적의 결과를 선택해야 합니다. 먼저 사용자는 LS-OPT에서 사용되는 viewer 프로그램을 통해 결과를 비교하고 최종적으로 하나의 결과를 선택합니다. 이를 위해 Step 3 제일 하단에 위치한 버튼 중에서 Open Viewer 버튼을 클릭합니다. 
+
+:::{admonition} LS-OPT Viewer
+
+![](images/gissmo/gissmo1.gif)
+
+위 영상에서 확인할 수 있는 내용에 대해서 아래와 같이 설명합니다.
+- FORCE_DISPLACEMENT_CURVE : 최적화 시뮬레이션을 통해서 계산된 결과의 Force-Displacement 결과 Curve를 표시합니다.
+- UT_target_curve : Step 1에서 시편 모델의 시험 target curve를 표시합니다. 
+
+(하단 Iteration에서)
+- all : 모든 결과 case의 결과를 표시합니다. 이 경우 선택한 FORCE_DISPLACEMENT_CURVE 결과가 표시됩니다. 
+- n : 하나의 Iteration의 결과를 표시합니다. 위 영상의 경우 총 11번의 Iteration이 수행되었으며 n을 통해 하나의 Iteration에서 생성된 simulation point 수만큼의 FORCE_DISPLACEMENT_CURVE를 표시합니다.
+
+표시되는 그래프에서 하나의 라인을 클릭하면 해당 결과에 대한 파라미터와 Case 넘버가 표시됩니다. 따라서 사용자는 target curve의 파단 시점을 잘 표현하는 하나의 결과를 선택하고 Case를 넘버를 확인합니다.
+
+:::
+
+:::{admonition} Numbering of Results
+:class: Tip
+최적화 시뮬레이션은 최적값을 찾기 위해 몇번의 반복 계산을 합니다. 반복 계산은 각 Iteration마다 사용자가 Step2에서 설정한 Num. of Simulation Points의 수만큼 결과를 생성합니다. 즉 최적값을 찾는데 5번의 Iteration이 수행되었고 Num. of Simulation Points의 값이 8이라면 총 40개의 결과를 생성합니다. 각 결과 Case의 넘버링은 1.1~1.8, 2.1~2.8 ... 5.1~5.8과 같이 설정되며 각 넘버링으로 된 폴더에 결과가 저장됩니다. 넘버링의 앞 숫자는 Iteration 값을 뒤의 숫자는 Simulation Point를 의미합니다.
+:::
+
+:::{admonition} Selecting Optimal Result Tip
+:class: Tip
+대부분의 경우 LS-OPT는 최적의 결과를 제일 마지막 넘버링 값으로 저장합니다. 하지만 가끔 마지막 넘버링의 결과보다 이전 넘버링의 결과에서 더 잘 맞는 결과가 있을 수 있습니다. 그렇기 때문에 무조건적으로 마지막 넘버링의 결과를 선택하기 보다는 LS-OPT Viewer에서 결과를 확인 후에 선택하는 것이 좋습니다.
+:::
+
 ### Triaxility Curve Data
 최적화 시뮬레이션이 완료된 시편 모델들에 대해서 최적 결과를 선택하고 Triaxiality를 계산 한 후에 생성되거나 생성 할 수 있는 Curve 데이터들을 확인하거나 조작할 수 있습니다.
 
