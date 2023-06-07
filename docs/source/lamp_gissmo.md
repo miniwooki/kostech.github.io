@@ -134,11 +134,27 @@ Step 3에서는 Step 2에서 진행된 해석 결과에서 최적의 결과를 �
 ::::{tab-set}
 
 :::{tab-item} H-F Failure
-Content1
+![](images/gissmo/gissmo4.png)
+H-F Failure 탭에서는 Hosford-Coulomb Failure Model을 이용하여 Triaxiality Curve를 생성할 수 있습니다. \
+해당 기능은 Curve를 데이터의 점 데이터에 알맞도록 자동으로 생성해주지 않습니다. \
+사용자가 NF, A, B, C 총 4개의 파라미터를 변경하면서 점 데이터를 잘 묘사하는 Curve를 찾아야 합니다. \ 
+:::{tip}
+Min 값을 변경하여 생성되는 Curve의 시작점을 설정할 수 있습니다.
+:::
+![](images/gissmo/gissmo0.gif)
 :::
 
 :::{tab-item} Interpolation
-Content2
+![](images/gissmo/gissmo5.png)
+Interpolation 탭에서는 선형 및 다항식등의 방법으로 점 데이터 사이를 Interpolation하여 Curve를 생성할 수 있습니다.
+LAMP GISSMO에서 지원되는 Interpolation 방법은 다음과 같습니다.
+
+- Linear
+- Cubic
+- Quadratic
+- Newton
+- Lagrange
+
 :::
 
 ::::
