@@ -141,7 +141,7 @@ H-F Failure 탭에서는 Hosford-Coulomb Failure Model을 이용하여 Triaxiali
 해당 기능은 Curve를 데이터의 점 데이터에 알맞도록 자동으로 생성해주지 않습니다. \
 사용자가 NF, A, B, C 총 4개의 파라미터를 변경하면서 점 데이터를 잘 묘사하는 Curve를 찾아야 합니다.
 
-![](images/gissmo/gissmo0.gif){w=400}
+![](images/gissmo/gissmo0.gif)
 
 :::
 

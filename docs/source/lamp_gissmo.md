@@ -35,6 +35,8 @@ LAMP GISSMO의 입력 패널의 제일 상단에는 작업 디렉토리(Working 
 Step 1에서는 준비된 시편 모델들을 추가하고 설계 파라미터들의 범위를 입력합니다. \
 추가된 모든 시편 모델에 대해 다음의 항목들을 선택 및 입력합니다.
 
+![](images/gissmo/gissmo1.png)
+
 - Specimen : 우측 아이콘 버튼을 클릭하고 시편 모델의 메인 키워드(Keyword) 파일을 선택합니다. 시편 모델을 정상적으로 읽었다면 다음의 과정들이 진행됩니다. 
 
     - Keyword 파일에서 *DEFINE_CURVE 카드를 찾고 Curve의 ID를 LCSS ID 항목에 추가합니다.
@@ -69,12 +71,12 @@ Specimen 항목의 ComboBox에 추가된 시편 모델들을 변경할 수 있�
 Specimen 항목의 우측 휴지통 아이콘을 통해 추가된 시편 모델을 제거 할 수 있습니다.
 :::
 
-![](images/gissmo/gissmo1.png)
-
 ## Step 2
 
 Step 2에서는 Step 1에서 입력된 시편 모델과 파라미터 정보를 기반으로 LS-OPT를 사용하여 최적화 시뮬레이션을 수행합니다. \
 최적화 시뮬레이션은 LS-OPT 뿐만 아니라 LS-Dyan Solver를 사용하기 때문에 각각의 정보를 입력합니다. 
+
+![](images/gissmo/gissmo2.png)
 
 ### Solver option
 LS-Dyna Solver에 대한 정보를 입력합니다. smp, mpp Solver 둘 다 사용가능하며 mpp solver의 경우 MPI 경로가 필요합니다.
@@ -115,10 +117,10 @@ Solver option에서 On server를 선택하였다면 스케쥴러 기능을 활�
 Solver Option과 LSOPT Option을 환경에 맞게 입력 및 선택한 후에 Run 버튼으로 최적화 시뮬레이션을 실행 할 수 있습니다. \
 진행중인 시뮬레이션을 중단하고자 할 경우에는 Stop 버튼으로 시뮬레이션을 중단합니다. 
 
-![](images/gissmo/gissmo2.png)
-
 ## Step 3
 Step 3에서는 Step 2에서 진행된 해석 결과에서 최적의 결과를 선택하고 각 결과에 대한 Triaxiality를 계산합니다.
+
+![](images/gissmo/gissmo3.png)
 
 ### Specimen Model
 각 시편의 현재 상태를 표시합니다. 최적화 시뮬레이션이 완료된 시편 모델에 대해서 최적 결과 선택 및 Triaxiality를 계산할 수 있습니다.
@@ -141,7 +143,7 @@ H-F Failure 탭에서는 Hosford-Coulomb Failure Model을 이용하여 Triaxiali
 해당 기능은 Curve를 데이터의 점 데이터에 알맞도록 자동으로 생성해주지 않습니다. \
 사용자가 NF, A, B, C 총 4개의 파라미터를 변경하면서 점 데이터를 잘 묘사하는 Curve를 찾아야 합니다.
 
-![](images/gissmo/gissmo0.gif){w=400}
+![](images/gissmo/gissmo0.gif)
 
 :::
 
@@ -150,7 +152,8 @@ H-F Failure 탭에서는 Hosford-Coulomb Failure Model을 이용하여 Triaxiali
 ![](images/gissmo/gissmo5.png)
 
 Interpolation 탭에서는 선형 및 다항식등의 방법으로 점 데이터 사이를 Interpolation하여 Curve를 생성할 수 있습니다.
-LAMP GISSMO에서 지원되는 Interpolation 방법은 다음과 같습니다.
+LAMP GISSMO에서 지원되는 Interpolation 방법은 다음과 같습니다. \
+Interpolation을 하기 위한 Min, Max Point 값과 생성할 Curve 데이터의 step 크기를 입력하고 Method를 선택 후 Apply 버튼을 눌러 Curve를 생성합니다.
 
 - Linear
 - Cubic
@@ -161,5 +164,3 @@ LAMP GISSMO에서 지원되는 Interpolation 방법은 다음과 같습니다.
 :::
 
 ::::
-
-![](images/gissmo/gissmo3.png)
