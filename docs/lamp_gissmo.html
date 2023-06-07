@@ -73,6 +73,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#triaxility-curve-data">Triaxility Curve Data</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#step-4">Step 4</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="comments.html">용어 설명</a></li>
@@ -260,7 +261,16 @@ Specimen 항목의 우측 휴지통 아이콘을 통해 추가된 시편 모델�
 </section>
 <section id="calculation-triaxiality-value">
 <h3>Calculation Triaxiality Value<a class="headerlink" href="#calculation-triaxiality-value" title="Permalink to this heading"></a></h3>
-<p>각 시편 모델의 최적 결과를 선택하였다면 각 시편 모델의 Triaxiality를 계산해야 합니다. LAMP GISSMO에서 Triaxiality를 쉽게 계산할 수 있습니다. 하단의 Select Result를 클릭합니다.</p>
+<p>LS-OPT Viewer에서 각 시편 모델의 최적 결과를 선택하였다면 각 시편 모델의 Triaxiality를 계산해야 합니다. LAMP GISSMO에서 Triaxiality를 쉽게 계산할 수 있습니다. 하단의 Select Result를 클릭합니다.</p>
+<p><img alt="" src="_images/gissmo6.png" /></p>
+<ul class="simple">
+<li><p>Project : 현재 사용중인 시편 모델의 이름을 표시합니다.</p></li>
+<li><p>Result : 최적화 시뮬레이션으로 생성된 결과의 넘버링 목록이 표시되며 LS-OPT Viewer에서 선택한 각 시편 모델의 최적 결과 Case 넘버를 선택합니다.</p></li>
+<li><p>Triaxiality : 선택된 Result 항목의 Case에 해당하는 결과에서 계산된 Triaxiality 값을 표시합니다. 계산 전에는 0으로 표시됩니다.</p></li>
+<li><p>DMGEXP, FADEXP, Fracture, Instability : 선택된 Result 항목의 파라미터 값을 표시합니다.</p></li>
+<li><p>Load : 아이콘을 눌러 선택된 Result 항목의 Triaxiality를 계산합니다. 계산이 종료되면 Triaxiality 열에 계산된 값이 자동으로 입력됩니다.</p></li>
+</ul>
+<p>위 설명에서와 같이 Result 항목에서 최적 결과에 해당하는 넘버를 선택하고 Load 항목의 아이콘을 클릭하여 각 시편 모델의 Triaxiality를 계산합니다. 계산 후 Apply 버튼을 클릭하여 적용합니다. 적용 후에는 Triaxiality Data 파일들이 자동으로 생성됩니다.</p>
 </section>
 <section id="triaxility-curve-data">
 <h3>Triaxility Curve Data<a class="headerlink" href="#triaxility-curve-data" title="Permalink to this heading"></a></h3>
@@ -301,6 +311,15 @@ Interpolation을 하기 위한 Min, Max Point 값과 생성할 Curve 데이터�
 </div>
 </div>
 </section>
+</section>
+<section id="step-4">
+<h2>Step 4<a class="headerlink" href="#step-4" title="Permalink to this heading"></a></h2>
+<p>Step 4에서는 메쉬 정규화(Mesh Regularization)을 수행합니다. 메쉬 정규화에는 Step 1에서 사용했던 시편 모델중에서 하나를 Reference로 선택해야 합니다. 선택된 시편모델에 대해서 실제 인장으로 변형되고 변위가 계산되는 요소의 사이즈를 달리하는 최소 3개의 시편 모델이 요구 됩니다.</p>
+<div class="tip admonition">
+<p class="admonition-title">Mesh Regularization</p>
+<p>재료의 파단은 메쉬 사이즈에 따라서 UTS 이후 결과에 차이가 있고 비선형 거동의 경우 메쉬 사이즈에 큰 영향을 받습니다. 실제 일정한 메쉬 사이즈에서 도출된 GISSMO 데이터를 일정하지 않은 해석 모델에 적용할 경우 부정확한 결과를 보일 수 있습니다. 따라서 메쉬 사이즈에 따른 Scaling Factor Curve를 생성하여 GISSMO에 적용합니다. 일반적으로 Reference 모델의 메쉬 사이즈는 0.5mm로 하며 메쉬 정규화를 위한 시편 모델은 0.4mm, 0.8mm, 1.5mm로 구성합니다. 0.5mm 일 때의 Scaling Factor를 1로 하여 LS-OPT 최적화 시뮬레이션으로 0.4mm, 0.8mm, 1.5mm일 때의 Scaling Factor 계산합니다. 결과적으로 총 4개의 Scaling Factor를 사용하여 Curve Fitting으로 Curve를 생성하고 GISSMO 물성 카드에 적용합니다.</p>
+</div>
+<p><img alt="" src="_images/gissmo7.png" /></p>
 </section>
 </section>
 
