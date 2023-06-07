@@ -70,3 +70,54 @@ Specimen 항목의 우측 휴지통 아이콘을 통해 추가된 시편 모델�
 :::
 
 ![](images/gissmo/gissmo1.png)
+
+## Step 2
+
+Step 2에서는 Step 1에서 입력된 시편 모델과 파라미터 정보를 기반으로 LS-OPT를 사용하여 최적화 시뮬레이션을 수행합니다. \
+최적화 시뮬레이션은 LS-OPT 뿐만 아니라 LS-Dyan Solver를 사용하기 때문에 각각의 정보를 입력합니다. 
+
+### Solver option
+LS-Dyna Solver에 대한 정보를 입력합니다. smp, mpp Solver 둘 다 사용가능하며 mpp solver의 경우 MPI 경로가 필요합니다.
+
+- On server : Linux 계열의 클러스터 장비에서 최적화 시뮬레이션을 하고자 할 경우에 선택합니다.
+- On client : Windows 운영체제의 사용자 PC 즉 local PC에서 최적화 시뮬레이션을 하고자 할 경우에 선택합니다.
+- MPI Path : mpp solver를 사용하는 경우에 우측 ... 아이콘을 통해 MPI 경로를 선택합니다.
+- Solver : LS-Dyna solver를 선택합니다. 우측 ... 아이콘을 통해 solver가 위치한 디렉토리를 선택하면 디렉토리내의 모든 solver가 추가됩니다. 
+- LSOPT : LS-OPT 실행 파일이 존재하는 디렉토리를 우측 ... 아이콘을 통해 선택합니다.
+- Memory1 & Memory2 : LS-Dyna solver의 메모리 옵션 값을 입력합니다. 
+- NCPU : LS-Dyna solver에 사용할 계산 CPU 코어의 수를 입력합니다. 
+
+### LSOPT Option
+LS-OPT 최적화 시뮬레이션 옵션 값을 입력합니다.
+
+- Num. of Simulation Points : 각각의 Iteration에서 수행할 시뮬레이션 횟수를 입력합니다.
+- Execution Global Limit : 각 Iteration의 시뮬레이션 횟수에서 동시에 실행할 시뮬레이션의 수를 제한하기 위한 값을 입력합니다.
+    :::{tip}
+    각 Iteration에서 LS-Dyna 시뮬레이션은 Num. of Simulation Points의 값에 대해서 동시에 실행됩니다. 따라서 Solver option에서 NCPU의 값이 4이고 Num. of Simulation Points의 값이 8이라면 한번의 Iteration에 총 32개의 CPU 코어가 사용됩니다. 하지만 가용 가능한 CPU 코어의 수가 16개라면 동시에 실행되는 시뮬레이션의 수를 제한해야 합니다. 따라서 Execution Global Limit 값을 4로 주어 하나의 Iteration에서 8개의 시뮬레이션을 동시에 실행하지 않고 4개씩 끊어서 순차적으로 실행되도록 하여 가용 가능한 16개의 코어를 사용하도록 합니다.
+    :::
+
+### Status
+Step 2에서의 진행 상태를 표시합니다. 우측의 사각형 마크는 빨강, 주황, 초록색으로 상태가 변경됩니다. \
+좌측의 체크박스는 시편 모델의 최적화 시뮬레이션 수행 유무를 구분하는 항목으로 최적화 시뮬레이션 실행 시 체크된 시편 모델에 대해서만 최적화 시뮬레이션이 진행됩니다.
+
+- <span style="color:red">빨강</span> : 빨강색으로 해당 시편 모델의 최적화 시뮬레이션이 수행되지 않은 상태를 의미합니다.
+- <span style="color:orange">주황</span> : 주황색은 해당 시편 모델의 최적화 시뮬레이션이 수행중인 상태를 의미합니다.
+- <span style="color:green">초록</span> : 초록색은 해당 시편 모델의 최적화 시뮬레이션이 성공적으로 종료되었음을 의미합니다. 
+
+### Card type
+LS-Dyna에서 지원되는 GISSMO 재료 카드는 2가지가 있습니다. MAT_ADD_DAMAGE_GISSMO 카드는 LS-Dyan R12 버전을 포함한 상위 버전에서 지원되는 카드입니다. R12 버전 이상의 LS-Dyna solver를 사용하는 경우에는 MAT_ADD_DAMAGE_GISSMO 카드 사용을 권장 드립니다.
+
+### Scheduler
+Solver option에서 On server를 선택하였다면 스케쥴러 기능을 활용할 수 있습니다. 현재 스케쥴러 기능은 SGE 스케쥴러만 테스트 되었습니다. \
+`현재 일반화되지 않은 기능이기에 자세한 설명은 생략합니다. 해당 기능에 대한 설명은 따로 문의 주시기 바랍니다.`
+
+### Run & Stop
+Solver Option과 LSOPT Option을 환경에 맞게 입력 및 선택한 후에 Run 버튼으로 최적화 시뮬레이션을 실행 할 수 있습니다. \
+진행중인 시뮬레이션을 중단하고자 할 경우에는 Stop 버튼으로 시뮬레이션을 중단합니다. 
+
+![](images/gissmo/gissmo2.png)
+
+## Step 3
+Step 3에서는 Step 2에서 진행된 해석 결과에서 최적의 결과를 선택하고 
+
+![](images/gissmo/gissmo3.png)

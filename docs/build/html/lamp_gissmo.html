@@ -55,6 +55,16 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">LAMP GISSMO</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#gissmo-interface-panel">GISSMO Interface Panel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#step-1">Step 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2">Step 2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#solver-option">Solver option</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lsopt-option">LSOPT Option</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#status">Status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#card-type">Card type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scheduler">Scheduler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-stop">Run &amp; Stop</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#step-3">Step 3</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="comments.html">용어 설명</a></li>
@@ -148,6 +158,67 @@
 Specimen 항목의 우측 휴지통 아이콘을 통해 추가된 시편 모델을 제거 할 수 있습니다.</p>
 </div>
 <p><img alt="" src="_images/gissmo1.png" /></p>
+</section>
+<section id="step-2">
+<h2>Step 2<a class="headerlink" href="#step-2" title="Permalink to this heading"></a></h2>
+<p>Step 2에서는 Step 1에서 입력된 시편 모델과 파라미터 정보를 기반으로 LS-OPT를 사용하여 최적화 시뮬레이션을 수행합니다. <br />
+최적화 시뮬레이션은 LS-OPT 뿐만 아니라 LS-Dyan Solver를 사용하기 때문에 각각의 정보를 입력합니다.</p>
+<section id="solver-option">
+<h3>Solver option<a class="headerlink" href="#solver-option" title="Permalink to this heading"></a></h3>
+<p>LS-Dyna Solver에 대한 정보를 입력합니다. smp, mpp Solver 둘 다 사용가능하며 mpp solver의 경우 MPI 경로가 필요합니다.</p>
+<ul class="simple">
+<li><p>On server : Linux 계열의 클러스터 장비에서 최적화 시뮬레이션을 하고자 할 경우에 선택합니다.</p></li>
+<li><p>On client : Windows 운영체제의 사용자 PC 즉 local PC에서 최적화 시뮬레이션을 하고자 할 경우에 선택합니다.</p></li>
+<li><p>MPI Path : mpp solver를 사용하는 경우에 우측 … 아이콘을 통해 MPI 경로를 선택합니다.</p></li>
+<li><p>Solver : LS-Dyna solver를 선택합니다. 우측 … 아이콘을 통해 solver가 위치한 디렉토리를 선택하면 디렉토리내의 모든 solver가 추가됩니다.</p></li>
+<li><p>LSOPT : LS-OPT 실행 파일이 존재하는 디렉토리를 우측 … 아이콘을 통해 선택합니다.</p></li>
+<li><p>Memory1 &amp; Memory2 : LS-Dyna solver의 메모리 옵션 값을 입력합니다.</p></li>
+<li><p>NCPU : LS-Dyna solver에 사용할 계산 CPU 코어의 수를 입력합니다.</p></li>
+</ul>
+</section>
+<section id="lsopt-option">
+<h3>LSOPT Option<a class="headerlink" href="#lsopt-option" title="Permalink to this heading"></a></h3>
+<p>LS-OPT 최적화 시뮬레이션 옵션 값을 입력합니다.</p>
+<ul>
+<li><p>Num. of Simulation Points : 각각의 Iteration에서 수행할 시뮬레이션 횟수를 입력합니다.</p></li>
+<li><p>Execution Global Limit : 각 Iteration의 시뮬레이션 횟수에서 동시에 실행할 시뮬레이션의 수를 제한하기 위한 값을 입력합니다.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>각 Iteration에서 LS-Dyna 시뮬레이션은 Num. of Simulation Points의 값에 대해서 동시에 실행됩니다. 따라서 Solver option에서 NCPU의 값이 4이고 Num. of Simulation Points의 값이 8이라면 한번의 Iteration에 총 32개의 CPU 코어가 사용됩니다. 하지만 가용 가능한 CPU 코어의 수가 16개라면 동시에 실행되는 시뮬레이션의 수를 제한해야 합니다. 따라서 Execution Global Limit 값을 4로 주어 하나의 Iteration에서 8개의 시뮬레이션을 동시에 실행하지 않고 4개씩 끊어서 순차적으로 실행되도록 하여 가용 가능한 16개의 코어를 사용하도록 합니다.</p>
+</div>
+</li>
+</ul>
+</section>
+<section id="status">
+<h3>Status<a class="headerlink" href="#status" title="Permalink to this heading"></a></h3>
+<p>Step 2에서의 진행 상태를 표시합니다. 우측의 사각형 마크는 빨강, 주황, 초록색으로 상태가 변경됩니다. <br />
+좌측의 체크박스는 시편 모델의 최적화 시뮬레이션 수행 유무를 구분하는 항목으로 최적화 시뮬레이션 실행 시 체크된 시편 모델에 대해서만 최적화 시뮬레이션이 진행됩니다.</p>
+<ul class="simple">
+<li><p><span style="color:red">빨강</span> : 빨강색으로 해당 시편 모델의 최적화 시뮬레이션이 수행되지 않은 상태를 의미합니다.</p></li>
+<li><p><span style="color:orange">주황</span> : 주황색은 해당 시편 모델의 최적화 시뮬레이션이 수행중인 상태를 의미합니다.</p></li>
+<li><p><span style="color:green">초록</span> : 초록색은 해당 시편 모델의 최적화 시뮬레이션이 성공적으로 종료되었음을 의미합니다.</p></li>
+</ul>
+</section>
+<section id="card-type">
+<h3>Card type<a class="headerlink" href="#card-type" title="Permalink to this heading"></a></h3>
+<p>LS-Dyna에서 지원되는 GISSMO 재료 카드는 2가지가 있습니다. MAT_ADD_DAMAGE_GISSMO 카드는 LS-Dyan R12 버전을 포함한 상위 버전에서 지원되는 카드입니다. R12 버전 이상의 LS-Dyna solver를 사용하는 경우에는 MAT_ADD_DAMAGE_GISSMO 카드 사용을 권장 드립니다.</p>
+</section>
+<section id="scheduler">
+<h3>Scheduler<a class="headerlink" href="#scheduler" title="Permalink to this heading"></a></h3>
+<p>Solver option에서 On server를 선택하였다면 스케쥴러 기능을 활용할 수 있습니다. 현재 스케쥴러 기능은 SGE 스케쥴러만 테스트 되었습니다. <br />
+<code class="docutils literal notranslate"><span class="pre">현재</span> <span class="pre">일반화되지</span> <span class="pre">않은</span> <span class="pre">기능이기에</span> <span class="pre">자세한</span> <span class="pre">설명은</span> <span class="pre">생략합니다.</span> <span class="pre">해당</span> <span class="pre">기능에</span> <span class="pre">대한</span> <span class="pre">설명은</span> <span class="pre">따로</span> <span class="pre">문의</span> <span class="pre">주시기</span> <span class="pre">바랍니다.</span></code></p>
+</section>
+<section id="run-stop">
+<h3>Run &amp; Stop<a class="headerlink" href="#run-stop" title="Permalink to this heading"></a></h3>
+<p>Solver Option과 LSOPT Option을 환경에 맞게 입력 및 선택한 후에 Run 버튼으로 최적화 시뮬레이션을 실행 할 수 있습니다. <br />
+진행중인 시뮬레이션을 중단하고자 할 경우에는 Stop 버튼으로 시뮬레이션을 중단합니다.</p>
+<p><img alt="" src="_images/gissmo2.png" /></p>
+</section>
+</section>
+<section id="step-3">
+<h2>Step 3<a class="headerlink" href="#step-3" title="Permalink to this heading"></a></h2>
+<p>Step 3에서는 Step 2에서 진행된 해석 결과에서 최적의 결과를 선택하고</p>
+<p><img alt="" src="_images/gissmo3.png" /></p>
 </section>
 </section>
 
