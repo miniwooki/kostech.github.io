@@ -118,6 +118,27 @@ Solver Option과 LSOPT Option을 환경에 맞게 입력 및 선택한 후에 Ru
 ![](images/gissmo/gissmo2.png)
 
 ## Step 3
-Step 3에서는 Step 2에서 진행된 해석 결과에서 최적의 결과를 선택하고 
+Step 3에서는 Step 2에서 진행된 해석 결과에서 최적의 결과를 선택하고 각 결과에 대한 Triaxiality를 계산합니다.
+
+### Specimen Model
+각 시편의 현재 상태를 표시합니다. 최적화 시뮬레이션이 완료된 시편 모델에 대해서 최적 결과 선택 및 Triaxiality를 계산할 수 있습니다.
+
+### Triaxility Curve Data
+최적화 시뮬레이션이 완료된 시편 모델들에 대해서 최적 결과를 선택하고 Triaxiality를 계산 한 후에 생성되거나 생성 할 수 있는 Curve 데이터들을 확인하거나 조작할 수 있습니다.
+
+- Triaxiality vs Plastic Strain Data File : Triaxiality vs Plastic Strain Data가 기록된 csv파일 이름을 표시하고 우측 아이콘을 통해 그래프로 확인 할 수 있습니다.
+- Triaxiality vs Fracture Data File : Triaxiality vs Fracture Data가 기록된 csv파일 이름을 표시하고 Data를 이용해 interpolation으로 Curve를 생성할 수 있습니다.
+    - <img src="images/gissmo/ShowFailurePoint.png" width="24px"> : Triaxility vs Fracture 데이터 포인터를 표시합니다.
+    - <img src="images/gissmo/ShowFailurPanel.png" width="24px"> : Triaxility vs Fracture 데이터 포인터를 기반으로 Curve를 생성 할 수 있는 도구를 표시합니다.
+
+::::{tab-set}
+
+:::{tab-item} H-F Failure
+Content1
+:::
+
+:::{tab-item} Interpolation
+Content2
+:::
 
 ![](images/gissmo/gissmo3.png)

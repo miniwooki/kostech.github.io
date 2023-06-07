@@ -15,6 +15,7 @@ author = 'cwjun'
 
 extensions = [
     'myst_parser',
+    'sphinx_design',
     'rst2pdf.pdfbuilder'
 ]
 myst_heading_anchors = 3
