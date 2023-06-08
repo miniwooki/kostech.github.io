@@ -261,12 +261,14 @@ Step 4에서 메쉬 정규화를 위해 추가한 모델의 정보를 입력합�
 LS-Dyna GISSMO 물성에 메쉬 사이즈의 Scaling Factor를 적용하기 위해서 결정된 데이터로 Curve Fitting을 하여 Curve를 생성합니다. 
 
 - Mesh Regularization Factor Data : 최적화 시뮬레이션으로 결정된 각 시편 모델의 Scaling Factor 데이터가 저장된 csv 파일을 표시합니다. 
+
     - ![](images/gissmo/ShowMRFactorPoint.png){w=24px} : csv 데이터 파일에 저장된 포인트 정보를 그래프로 표시합니다.
-    - ![](images/gissmo/ShowMRFactorCurve.png){w=24px} : Scaling Factor 포인트 정보를 기반으로 Curve Fitting을 할 수 있는 도구를 표시하고 Curve Fitting을 하여 Curve를 결정합니다.
-    \
+    - ![](images/gissmo/ShowMRFactorCurve.png){w=24px} : Scaling Factor 포인트 정보를 기반으로 Curve Fitting을 할 수 있는 도구를 표시하고 Curve Fitting을 하여 Curve를 결정합니다. 
+
         - Data 항목에서 생성할 Curve 가로축의 Min, Max 값과 Step 사이즈를 설정합니다.
         - Curve Fitting은 두 개의 지수함수 모델을 사용할 수 있습니다. 각각의 버튼을 클릭 시 Curve Fitting이 바로 적용되며 A, B 그리고 C 값이 표시됩니다. 사용자는 임의로 A, B, C 값을 변경하여 Curve를 수정할 수 있습니다.
         - Curve를 결정한 이후에는 Apply 버튼을 클릭하여 생성된 Curve 데이터를 csv 파일로 저장합니다.
         ![](images/gissmo/gissmo8.png)
+
 
 - Mesh Regularization Factor Curve File : Curve Fitting을 통해 생성된 Curve 데이터가 저장된 파일을 표시합니다.
