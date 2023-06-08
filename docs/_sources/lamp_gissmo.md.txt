@@ -272,3 +272,24 @@ LS-Dyna GISSMO 물성에 메쉬 사이즈의 Scaling Factor를 적용하기 위�
 
 
 - Mesh Regularization Factor Curve File : Curve Fitting을 통해 생성된 Curve 데이터가 저장된 파일을 표시합니다.
+
+## Step 5
+Step 5에서는 Ste 1 ~ 4를 진행하면서 얻은 결과들을 이용해서 LS-Dyna에서 사용가능한 GISSMO 물성 카드가 포함된 키워드 파일을 생성합니다.
+
+![](images/gissmo/gissmo9.png)
+
+- Step State : 이전 Step들의 상태를 표시합니다.
+    - <span style="color:red">빨강</span> : 진행된 내용이 없음을 나타냅니다.
+    - <span style="color:orange">주황</span> : Step 1~4에서 누락된 입력 및 내용이 있음을 나타냅니다.
+    - <span style="color:green">초록</span> : Step 1~4가 문제 없이 정상적으로 완료되었음을 나타냅니다.
+
+- Base Model : GISSMO 카드의 DMGEXP 와 FADEXP의 값을 가져올 모델을 선택합니다. 
+- LDSDG, ECRIT, LCREGD ID : GISSMO 카드에 입력되는 이 세 파라미터의 데이터는 Curve 데이터로 생성되는 결과물인 키워드 파일에 Step 3~4에서 결정한 3개의 Curve 데이터가 각각 DEFINE_CURVE 카드에 정의됩니다. 이 세 입력란에 입력하는 ID는 각각의 DEFINE_CURVE의 ID입니다. 
+
+:::{hint}
+ECRIT의 ID는 GISSMO 카드에 마이너스 값으로 변경되어 입력됩니다. 마이너스의 의미는 ECRIT의 데이터로 Curve를 사용하겠다는 의미입니다. `사용자가 입력하는 UI의 ECRIT ID 입력란에는 마이너스가 아닌 플러스 값으로 입력해야 합니다.`
+:::
+
+생성되는 결과물은 아래와 같습니다.
+
+![](images/gissmo/gissmo10.png)
