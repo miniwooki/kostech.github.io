@@ -223,6 +223,7 @@ Step 4에서는 메쉬 정규화(Mesh Regularization)을 수행합니다. 메쉬
 
 ### Selection of Reference Model
 - Reference Speciment : 하나의 Reference 모델을 선택합니다. 일반적으로 단순한 Uniaxial 모델을 사용합니다.
+- Reference Mesh Size : Reference 모델의 메쉬 사이즈를 입력합니다.
 
 ### Add Specimen Model
 사전에 준비된 시편 모델들을 Add 버튼을 클릭하여 추가합니다. Step 4에서 추가된 모델들은 두 개의 상태로 진행 상황을 개략적으로 확인할 수 있습니다.
@@ -236,3 +237,36 @@ Step 4에서는 메쉬 정규화(Mesh Regularization)을 수행합니다. 메쉬
 - <span style="color:red">빨강</span> : Step 3과 유사하게 결과 선택에 있어 진행된 내용이 없음을 나타냅니다.
 - <span style="color:orange">주황</span> : 최적화 시뮬레이션의 Sampling 결과 데이터를 읽은 상태로 아직 최적 결과가 선택되지 않았음을 의미합니다.
 - <span style="color:green">초록</span> : 최적 결과가 선택되었으며, Scaling Factor 데이터를 이용한 Curve Fitting이 가능한 상태를 나타냅니다.
+
+### Input Data & Simulation
+Step 4에서 메쉬 정규화를 위해 추가한 모델의 정보를 입력합니다. 입력은 시편 모델 리스트에서 하나의 모델을 선택 후에 입력합니다. 
+
+- Mesh Size : 선택한 시편모델의 메쉬 사이즈를 입력합니다. 추가한 시편 모두에 대해서 입력해줍니다.
+- LCREGD : LCREGD는 LS-OPT 최적화 시뮬레이션에서 결정되는 변수로 최적 값을 찾기 위한 초기값 및 범위를 입력합니다. 추가한 시편 모두에 대해서 입력해 줍니다.
+- Run : 각 시편 모델의 필요 정보를 모두 입력하였다면 Run 버튼으로 최적화 시뮬레이션을 수행합니다.
+- Stop : 진행중인 LS-OPT 최적화 시뮬레이션을 중단합니다.
+
+:::{Tip}
+메쉬 정규화에서 실행하는 최적화 시뮬레이션의 Solver 및 LS-OPT 옵션들은 모두 Step 2에서 설정된 값을 사용합니다.
+:::
+
+### Result of Mesh Regularization
+최적화 시뮬레이션이 정상적으로 종료되었다면 결과를 로드 하고 Step 3에서 진행했던 것과 같이 최적 결과를 선택합니다.
+
+- Load Results : 메쉬 정규화를 위해 추가했던 시편 모델의 시뮬레이션 결과를 로드합니다. 정상적으로 결과가 로드되면 Stage Results란에 각 시편 모델의 결과 Stage 넘버 목록이 표시됩니다. 
+- Stage Results : ```선택한 시편 모델```의 결과 Stage 넘버 목록이 표시됩니다. 제일 마지막 Stage 넘버를 선택합니다.
+- Select Results : 결과를 로드하고 각 시편 모델의 Stage 넘버를 선택하였다면 Select Results 버튼으로 선택된 결과를 결정합니다. 결과를 결정하기 되면 Mesh Regularization Factor Data 파일이 생성됩니다. 
+
+### Generate Mesh Regularization Factor Curve
+LS-Dyna GISSMO 물성에 메쉬 사이즈의 Scaling Factor를 적용하기 위해서 결정된 데이터로 Curve Fitting을 하여 Curve를 생성합니다. 
+
+- Mesh Regularization Factor Data : 최적화 시뮬레이션으로 결정된 각 시편 모델의 Scaling Factor 데이터가 저장된 csv 파일을 표시합니다. 
+    - ![](images/gissmo/ShowMRFactorPoint.png){w=24px} : csv 데이터 파일에 저장된 포인트 정보를 그래프로 표시합니다.
+    - ![](images/gissmo/ShowMRFactorCurve.png){w=24px} : Scaling Factor 포인트 정보를 기반으로 Curve Fitting을 할 수 있는 도구를 표시하고 Curve Fitting을 하여 Curve를 결정합니다.
+    \
+        - Data 항목에서 생성할 Curve 가로축의 Min, Max 값과 Step 사이즈를 설정합니다.
+        - Curve Fitting은 두 개의 지수함수 모델을 사용할 수 있습니다. 각각의 버튼을 클릭 시 Curve Fitting이 바로 적용되며 A, B 그리고 C 값이 표시됩니다. 사용자는 임의로 A, B, C 값을 변경하여 Curve를 수정할 수 있습니다.
+        - Curve를 결정한 이후에는 Apply 버튼을 클릭하여 생성된 Curve 데이터를 csv 파일로 저장합니다.
+        ![](images/gissmo/gissmo8.png)
+
+- Mesh Regularization Factor Curve File : Curve Fitting을 통해 생성된 Curve 데이터가 저장된 파일을 표시합니다.
